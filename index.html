@@ -11,13 +11,14 @@
     </head>
 
 <body>
+    
     <!-- Check oculto para controlar el sidebar -->
     <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
     
 <!-- Sidebar -->
 <div class="sidebar">
     <div class="sidebar-header">
-        <img src="GALERIA\logo.jpg" alt="Logo" class="sidebar-logo">
+        <img src="GALERIA/logo.jpg" alt="Logo" class="sidebar-logo">
         <h3>Hotel Cerrito</h3>
     </div>
     <nav class="sidebar-nav">
@@ -26,8 +27,11 @@
             <li><a href="#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
             <li><a href="#precios"><i class="fas fa-tag"></i> Precios</a></li>
             <li><a href="#contacto"><i class="fas fa-phone"></i> Contacto</a></li>
+            
+            <!-- Nueva opción para Reservas -->
+            <li><a href="reservas.html" id="reservas-link"><i class="fas fa-calendar-check"></i> Reservas</a></li>
         </ul>
-    </nav>
+    </nav>    
 </div>
 
 
@@ -170,6 +174,48 @@
                     </tbody>
                 </table>
             </section>
+
+            <section id="formulario-reserva">
+                <h2>Hacer Reserva</h2>
+                <form action="PHP\reservas.php" method="POST" onsubmit="return validarFormulario()">
+                    <!-- Datos personales -->
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="text" name="apellido" placeholder="Apellido" required>
+                    <input type="tel" name="telefono" placeholder="Teléfono" required>
+                    
+                    <!-- Selección de habitación -->
+                    <select name="habitacion" required>
+                        <option value="">Selecciona Habitación</option>
+                        <option value="Habitación Sencilla">Habitación Sencilla</option>
+                        <option value="Habitación Doble">Habitación Doble</option>
+                        <option value="Suite">Suite</option>
+                        <option value="Habitación Familiar">Habitación Familiar</option>
+                        <option value="Penthouse">Penthouse</option>
+                    </select>
+                    
+                    <!-- Fechas -->
+                    <label>Fecha de Entrada:</label>
+                    <input type="date" name="fecha_entrada" required>
+                    
+                    <label>Fecha de Salida:</label>
+                    <input type="date" name="fecha_salida" required>
+                    
+                    <!-- Precios -->
+                    <select name="precio" required>
+                        <option value="">Selecciona Precio</option>
+                        <option value="150000">Habitación Sencilla - $150,000</option>
+                        <option value="250000">Habitación Doble - $250,000</option>
+                        <option value="400000">Suite - $400,000</option>
+                        <option value="500000">Habitación Familiar - $500,000</option>
+                        <option value="600000">Penthouse - $600,000</option>
+                        <option value="15000">Desayuno incluido - $15,000</option>
+                    </select>
+                    
+                    <!-- Botón de envío -->
+                    <button type="submit">Reservar</button>
+                </form>
+            </section>
+            
             
             <section id="contacto">
                 <h2>Contacto</h2>
