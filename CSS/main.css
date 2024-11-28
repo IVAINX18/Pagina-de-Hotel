@@ -1,0 +1,10 @@
+/* Import all CSS modules */
+@import 'base.css';
+@import 'sidebar.css';
+@import 'auth.css';
+@import 'header.css';
+@import 'sections.css';
+@import 'gallery.css';
+@import 'forms.css';
+@import 'tables.css';
+@import 'responsive.css';

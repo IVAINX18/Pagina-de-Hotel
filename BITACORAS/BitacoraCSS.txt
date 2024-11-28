@@ -1,0 +1,189 @@
+Bitácora y Documentación del Código CSS del Proyecto "Hotel Cerrito"
+1. General
+Estilo base del cuerpo (body):
+Configuración de tipografía (font-family), márgenes y relleno (margin, padding).
+Fondo negro (background-color: black) con texto blanco (color: #fff) y un interlineado estándar (line-height: 1.6).
+Se desactiva el desplazamiento horizontal (overflow-x: hidden).
+2. Sidebar
+Definición del Sidebar:
+
+Posicionado a la izquierda fuera de la vista inicial (left: -280px), con un ancho fijo de 280px.
+Transición animada suave de 0.3s para mostrar/ocultar.
+Color de fondo verde oscuro (background-color: #1a472a) con sombra para darle profundidad.
+Control con un Checkbox Oculto:
+
+Usando input.sidebar-checkbox para manejar el estado visible/invisible del sidebar mediante CSS puro.
+Cuando el checkbox está marcado (sidebar-checkbox:checked), el sidebar se desplaza a la posición izquierda (left: 0).
+Estilos Internos:
+
+Encabezado (sidebar-header): Incluye un logo circular con un espacio de relleno y un fondo verde más oscuro.
+Navegación (sidebar-nav): Lista de enlaces estilizados con íconos alineados y una animación en hover (background-color: #2d6a3e).
+3. Encabezado Principal
+Fondo verde (background-color: green) con sombra para destacarse visualmente.
+Logo:
+Circular, con borde blanco y sombra para dar efecto 3D.
+Título del Hotel:
+Tipografía serif, grande y con sombra (text-shadow) para mayor impacto visual.
+4. Navegación Principal
+Lista horizontal (nav ul):
+Alineada al centro con espacios uniformes (gap).
+Estilo de enlace (nav ul li a): Texto blanco, bordes redondeados y fondo interactivo en hover.
+5. Secciones
+Espaciado interno y externo (padding y margin) para mantener consistencia entre secciones.
+Encabezados (h2):
+Bordes inferiores estilizados para destacar títulos.
+Texto y listas (p y ul):
+Márgenes y viñetas personalizadas para listas.
+6. Galería
+Disposición:
+Usando grid CSS con dos columnas en pantallas grandes y una columna en dispositivos pequeños (@media queries).
+Fondo semitransparente (background-color: rgba(26, 71, 42, 0.3)) con sombra.
+Elementos individuales (gallery-item):
+Fondo con relleno, bordes redondeados y animación de elevación al pasar el cursor (transform: translateY(-5px)).
+Imágenes:
+Escaladas uniformemente con animación interactiva (transform: scale(1.03)).
+7. Pie de Página
+Fondo gris oscuro (background-color: #2f4f4f) con texto pequeño y enlaces interactivos en hover.
+8. Diseño Responsivo
+Media Queries:
+Ajustes de tamaño de fuente y disposición de elementos para pantallas menores a 768px y 480px.
+Sidebar a pantalla completa en dispositivos pequeños.
+Reorganización de galerías e ítems para garantizar una experiencia adaptativa.
+9. Interactividad y Transiciones
+Uso consistente de transition para mejorar la experiencia de usuario, permitiendo cambios suaves en hover y acciones del sidebar
+
+-----------------------------------------------------------------------------------------------
+Bitácora de Cambios: CSS
+Descripción General: Se añadieron estilos para gestionar la apariencia del botón de "Iniciar sesión", la ventana emergente y el fondo oscuro (overlay).
+
+Cambios Realizados:
+
+Estilo del Botón "Iniciar Sesión":
+
+El botón tiene un diseño llamativo con un color verde oscuro y bordes redondeados.
+Código:
+#login-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #6b8e23;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#login-btn:hover {
+    background-color: #2d6a3e;
+}
+Ventana Emergente (#login-popup):
+
+Diseñada como un cuadro centrado con un fondo blanco, bordes redondeados y sombra.
+Contiene un formulario con campos de texto y un botón de envío.
+Código:
+#login-popup {
+    display: none; /* Oculta inicialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    color: black;
+}
+
+#login-popup h2 {
+    margin-top: 0;
+    color: #1a472a;
+}
+
+#login-popup form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-popup form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#login-popup form button {
+    padding: 10px;
+    background-color: #6b8e23;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#login-popup form button:hover {
+    background-color: #2d6a3e;
+}
+Fondo Oscuro (#popup-overlay):
+
+Una capa semitransparente que bloquea el contenido de la página mientras se muestra la ventana emergente.
+Código:
+#popup-overlay {
+    display: none; /* Oculto inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+Bitacora de cambios CSS:
+Estilos CSS para la Sección de Precios
+Descripción del Cambio:
+Se añadieron estilos CSS para la nueva sección de precios y para el formulario en la sección de contacto.
+
+Código CSS Añadido:
+/* Sección de Precios */
+#precios {
+    padding: 40px 20px;
+    margin: 20px 0;
+    background-color: rgba(26, 71, 42, 0.3);
+    border-radius: 10px;
+}
+
+/* Formulario de Contacto */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    padding: 10px;
+    background-color: #6b8e23;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: #2d6a3e;
+}

@@ -1,0 +1,32 @@
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #6b8e23;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(200, 200, 200, 0.1);
+}
+
+tbody tr:hover {
+    background-color: rgba(100, 100, 100, 0.1);
+}
+
+#precios {
+    padding: 40px 20px;
+    margin: 20px 0;
+    background-color: rgba(26, 71, 42, 0.3);
+    border-radius: 10px;
+}

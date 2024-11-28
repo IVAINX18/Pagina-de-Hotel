@@ -1,0 +1,96 @@
+/* Checkbox for sidebar */
+.sidebar-checkbox {
+    display: none;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background-color: #1a472a;
+    transition: 0.3s ease;
+    z-index: 1000;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Activate sidebar when checkbox is checked */
+.sidebar-checkbox:checked ~ .sidebar {
+    left: 0;
+}
+
+.sidebar-checkbox:checked ~ .main-content {
+    padding-left: 280px;
+    transition: padding-left 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    background-color: #0d2415;
+}
+
+.sidebar-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-nav ul li {
+    max-height: 50px;
+    overflow: hidden;
+    opacity: 1;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.sidebar-nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.4s ease;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: #2d6a3e;
+}
+
+.sidebar-nav ul li a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background-color: #2d6a3e;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-toggle:hover {
+    background-color: #1a472a;
+}

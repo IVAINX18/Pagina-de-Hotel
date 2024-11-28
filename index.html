@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hotel Cerrito</title>
+        <link rel="stylesheet" href="CSS/main.css">
+        <script src="JS/auth.js" defer></script>
+        <script src="JS/navigation.js" defer></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    </head>
+
+<body>
+    <!-- Check oculto para controlar el sidebar -->
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
+    
+<!-- Sidebar -->
+<div class="sidebar">
+    <div class="sidebar-header">
+        <img src="GALERIA\logo.jpg" alt="Logo" class="sidebar-logo">
+        <h3>Hotel Cerrito</h3>
+    </div>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+            <li><a href="#precios"><i class="fas fa-tag"></i> Precios</a></li>
+            <li><a href="#contacto"><i class="fas fa-phone"></i> Contacto</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<!-- Fondo oscuro para bloquear el contenido -->
+<div id="popup-overlay" class="popup-overlay" style="display: none;"></div>
+
+<!-- Ventana emergente de inicio de sesión -->
+<div id="login-popup" class="auth-popup" style="display: none;">
+    <h2>Iniciar Sesión</h2>
+    <form id="login-form" action="PHP\login.php" method="POST">
+        <input type="text" name="username" placeholder="Usuario" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Entrar</button>
+    </form>
+    <p>¿No tienes una cuenta? <a href="#" id="register-link">Regístrate aquí</a></p>
+</div>
+
+<!-- Ventana emergente de registro -->
+<div id="register-popup" class="auth-popup" style="display: none;">
+    <h2>Registro</h2>
+    <form id="register-form" action="PHP\register.php" method="POST">
+        <input type="text" name="username" placeholder="Usuario" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" required>
+        <button type="submit">Registrar</button>
+    </form>
+    <p>¿Ya tienes una cuenta? <a href="#" id="login-link">Inicia sesión aquí</a></p>
+</div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header style="position: relative; text-align: center; color: white;">
+            <label for="sidebar-toggle" class="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </label>
+            <img src="logo.jpg" alt="Logo" class="logo">
+            <h1 class="hotel-title">
+                Hotel Cerrito
+            </h1>
+            <nav>
+                <ul style="list-style: none; padding: 10px; display: inline-flex; gap: 20px; margin: 0; background-color: rgba(0, 0, 0, 0.5); border-radius: 5px;">
+                    <li><a href="#bienvenidos" style="color: white; text-decoration: none; font-weight: bold;">Bienvenidos</a></li>
+                    <li><a href="#servicios" style="color: white; text-decoration: none; font-weight: bold;">Servicios</a></li>
+                    <li><a href="#galeria" style="color: white; text-decoration: none; font-weight: bold;">Galería</a></li>
+                    <li><a href="#precios" style="color: white; text-decoration: none; font-weight: bold;">Precios</a></li>
+                    <li><a href="#contacto" style="color: white; text-decoration: none; font-weight: bold;">Contacto</a></li>
+                </ul>
+            </nav>
+            <!-- Botón de iniciar sesión -->
+            <button id="login-btn" style="position: absolute; top: 20px; right: 20px; padding: 10px 15px; background-color: #6b8e23; border: none; color: white; font-weight: bold; border-radius: 5px; cursor: pointer;">
+                Iniciar sesión
+            </button>
+        </header>
+        
+        <!-- Contenido Principal -->
+        <main>
+            <!-- Bienvenidos -->
+            <section id="bienvenidos">
+                <h2>Bienvenidos a Hotel Cerrito</h2>
+                <p>Disfruta de las impresionantes vistas desde este encantador hotel ubicado en el cerro, donde la naturaleza y la intervención humana se entrelazan de manera armónica. 
+                    Aquí, podrás conectar con la esencia de la naturaleza en un solo lugar, rodeado de majestuosas montañas que ofrecen un paisaje de ensueño.</p>
+                <p>El hotel se encuentra en un entorno privilegiado, ideal para aquellos que buscan escapar del bullicio de la ciudad y sumergirse en un oasis de tranquilidad. 
+                    Desde nuestras cómodas habitaciones, podrás contemplar la belleza de los amaneceres y atardeceres que pintan el cielo de colores vibrantes, mientras el canto de las aves y el susurro del viento te acompañan.</p>
+                <p>Cada rincón de nuestro hotel ha sido diseñado para ofrecerte una experiencia única y reconfortante. Disfruta de espacios al aire libre, senderos naturales para caminatas y actividades al aire libre que te permitirán explorar la flora y fauna local. 
+                    Además, nuestro restaurante ofrece delicias gastronómicas elaboradas con ingredientes frescos y locales, perfectas para complementar tu estancia.</p>
+                <p>Ya sea que busques aventura, relajación o simplemente un lugar para reconectar contigo mismo y tus seres queridos, nuestro hotel en el cerro es el destino perfecto para unas vacaciones inolvidables. 
+                    Ven y descubre las experiencias de magia de este lugar, donde cada día es una nueva oportunidad para disfrutar de la belleza natural que nos rodea.</p>
+                </section>
+
+            <!--Servicios-->
+            <section id="servicios">
+                <h2>Nuestros Servicios</h2>
+                <ul>
+                    <li>Habitaciones comodas con vistas a la Ciudad.</li>
+                    <li>Gimnasio totalmente equipados.</li>
+                    <li>Restaurante gourmet con cocina colombiana.</li>
+                    <li>Salones para eventos y conferencias</li>
+                </ul>
+            </section>
+
+            <!--Galeria-->
+            <section id="galeria">
+                <h2>Galería</h2>
+                <p><strong>Explora imágenes de nuestras instalaciones:</strong></p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <p>Habitaciones</p>
+                        <img src="GALERIA/Habitacion.jpg" alt="Habitación">
+                    </div>
+                    <div class="gallery-item">
+                        <p>Restaurante</p>
+                        <img src="GALERIA/restaurante.jpg" alt="Restaurante">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="GALERIA/Rio.jpg" alt="Río">
+                        <p>Río</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="GALERIA/gimnasio.jpg" alt="Gimnasio">
+                        <p>Gimnasio</p>
+                    </div>
+                </div>
+            </section> 
+            
+            <!-- Precios -->
+            <section id="precios">
+                <h2>Precios</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de Habitación</th>
+                            <th>Precio (COP)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Habitación Sencilla</td>
+                            <td>$150,000</td>
+                        </tr>
+                        <tr>
+                            <td>Habitación Doble</td>
+                            <td>$250,000</td>
+                        </tr>
+                            <tr>
+                            <td>Suite</td>
+                            <td>$400,000</td>
+                        </tr>
+                        <tr>
+                            <td>Habitación Familiar</td>
+                            <td>$500,000</td>
+                        </tr>
+                        <tr>
+                            <td>Penthouse</td>
+                            <td>$600,000</td>
+                        </tr>
+                        <tr>
+                            <td>Desayuno incluido</td>
+                            <td>$15,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="contacto">
+                <h2>Contacto</h2>
+                <p>¿Tienes alguna pregunta o deseas hacer una reserva? Contáctanos:</p>
+                <p><strong>Correo:</strong> reservas@hotelcerrito.com</p>
+                <p><strong>Teléfono:</strong> 123-456-7890</p>
+                <p><strong>Dirección:</strong> Vereda #123, Cañon del combeima</p>
+                
+                <form id="contact-form">
+                    <input type="text" name="nombre" placeholder="Tu Nombre" required>
+                    <input type="email" name="correo" placeholder="Tu Correo" required>
+                    <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+            
+        </main>
+        
+        <!-- Pie de pagina -->
+        
+        <footer>
+            <p>&copy; 2024 Hotel Cerrito. Todos los derechos reservados.</p>
+            <p>Síguenos en nuestras redes sociales: Facebook | Instagram | Twitter</p>
+        </footer>
+    </div>
+
+</body>
+</html>

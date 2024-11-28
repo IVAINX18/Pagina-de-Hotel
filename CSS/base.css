@@ -1,0 +1,17 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Main Content */
+.main-content {
+    transition: 0.3s ease;
+    position: relative;
+    left: 0;
+}
