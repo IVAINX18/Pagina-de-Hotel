@@ -1,189 +1,173 @@
 Bitácora y Documentación del Código CSS del Proyecto "Hotel Cerrito"
-1. General
-Estilo base del cuerpo (body):
-Configuración de tipografía (font-family), márgenes y relleno (margin, padding).
-Fondo negro (background-color: black) con texto blanco (color: #fff) y un interlineado estándar (line-height: 1.6).
-Se desactiva el desplazamiento horizontal (overflow-x: hidden).
-2. Sidebar
-Definición del Sidebar:
+28/11/2024
 
-Posicionado a la izquierda fuera de la vista inicial (left: -280px), con un ancho fijo de 280px.
-Transición animada suave de 0.3s para mostrar/ocultar.
-Color de fondo verde oscuro (background-color: #1a472a) con sombra para darle profundidad.
-Control con un Checkbox Oculto:
+Descripción General
+El archivo CSS del proyecto "Hotel Cerrito" define la apariencia visual del sitio web. Se implementan estilos para el cuerpo de la página, la navegación, el sidebar, las secciones de contenido, tablas, formularios y elementos interactivos. El objetivo principal es ofrecer una experiencia de usuario atractiva y coherente, adaptándose a diferentes dispositivos.
 
-Usando input.sidebar-checkbox para manejar el estado visible/invisible del sidebar mediante CSS puro.
-Cuando el checkbox está marcado (sidebar-checkbox:checked), el sidebar se desplaza a la posición izquierda (left: 0).
-Estilos Internos:
+----
 
-Encabezado (sidebar-header): Incluye un logo circular con un espacio de relleno y un fondo verde más oscuro.
-Navegación (sidebar-nav): Lista de enlaces estilizados con íconos alineados y una animación en hover (background-color: #2d6a3e).
-3. Encabezado Principal
-Fondo verde (background-color: green) con sombra para destacarse visualmente.
-Logo:
-Circular, con borde blanco y sombra para dar efecto 3D.
-Título del Hotel:
-Tipografía serif, grande y con sombra (text-shadow) para mayor impacto visual.
-4. Navegación Principal
-Lista horizontal (nav ul):
-Alineada al centro con espacios uniformes (gap).
-Estilo de enlace (nav ul li a): Texto blanco, bordes redondeados y fondo interactivo en hover.
-5. Secciones
-Espaciado interno y externo (padding y margin) para mantener consistencia entre secciones.
-Encabezados (h2):
-Bordes inferiores estilizados para destacar títulos.
-Texto y listas (p y ul):
-Márgenes y viñetas personalizadas para listas.
-6. Galería
-Disposición:
-Usando grid CSS con dos columnas en pantallas grandes y una columna en dispositivos pequeños (@media queries).
-Fondo semitransparente (background-color: rgba(26, 71, 42, 0.3)) con sombra.
-Elementos individuales (gallery-item):
-Fondo con relleno, bordes redondeados y animación de elevación al pasar el cursor (transform: translateY(-5px)).
-Imágenes:
-Escaladas uniformemente con animación interactiva (transform: scale(1.03)).
-7. Pie de Página
-Fondo gris oscuro (background-color: #2f4f4f) con texto pequeño y enlaces interactivos en hover.
-8. Diseño Responsivo
-Media Queries:
-Ajustes de tamaño de fuente y disposición de elementos para pantallas menores a 768px y 480px.
-Sidebar a pantalla completa en dispositivos pequeños.
-Reorganización de galerías e ítems para garantizar una experiencia adaptativa.
-9. Interactividad y Transiciones
-Uso consistente de transition para mejorar la experiencia de usuario, permitiendo cambios suaves en hover y acciones del sidebar
+Estructura del Documento
+1. Estilo General (base.css):
+   - Configuración de tipografía, márgenes y relleno para el cuerpo.
+   - Fondo negro con texto blanco y un interlineado estándar.
+   - Desactivación del desplazamiento horizontal.
 
------------------------------------------------------------------------------------------------
-Bitácora de Cambios: CSS
-Descripción General: Se añadieron estilos para gestionar la apariencia del botón de "Iniciar sesión", la ventana emergente y el fondo oscuro (overlay).
+2. Sidebar (sidebar.css):
+   - Definición del sidebar con un diseño que permite mostrar y ocultar mediante un checkbox.
+   - Estilos para el encabezado y la navegación del sidebar.
 
-Cambios Realizados:
+3. Encabezado Principal (header.css):
+   - Estilo del encabezado principal con fondo verde y tipografía destacada.
 
-Estilo del Botón "Iniciar Sesión":
+4. Navegación Principal (header.css):
+   - Diseño de la lista horizontal de navegación con enlaces estilizados.
 
-El botón tiene un diseño llamativo con un color verde oscuro y bordes redondeados.
-Código:
-#login-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px 15px;
-    background-color: #6b8e23;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+5. Secciones (sections.css):
+   - Espaciado y estilos para encabezados, texto y listas en diferentes secciones, incluyendo el pie de página con fondo gris oscuro y texto claro.
 
-#login-btn:hover {
-    background-color: #2d6a3e;
-}
-Ventana Emergente (#login-popup):
+6. Tablas (tables.css):
+   - Estilos para tablas que incluyen bordes, espaciado y colores alternativos para filas, mejorando la legibilidad y la interacción del usuario.
 
-Diseñada como un cuadro centrado con un fondo blanco, bordes redondeados y sombra.
-Contiene un formulario con campos de texto y un botón de envío.
-Código:
-#login-popup {
-    display: none; /* Oculta inicialmente */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    color: black;
-}
+7. Formularios (forms.css):
+   - Estilos para formularios de contacto, asegurando que los campos de entrada y botones sean visualmente atractivos y fáciles de usar.
 
-#login-popup h2 {
-    margin-top: 0;
-    color: #1a472a;
-}
+8. Galería (gallery.css):
+   - Disposición de elementos en una cuadrícula con estilos responsivos, optimizando la visualización en diferentes tamaños de pantalla.
 
-#login-popup form {
-    display: flex;
-    flex-direction: column;
-}
+9. Diseño Responsivo (responsive.css):
+   - Ajustes mediante media queries para mejorar la visualización en dispositivos móviles, garantizando que todos los elementos se adapten adecuadamente.
 
-#login-popup form input {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+10. Interactividad y Transiciones (auth.css y main.css):
+    - Implementación de transiciones suaves para botones y otros elementos interactivos, mejorando la experiencia del usuario.
 
-#login-popup form button {
-    padding: 10px;
-    background-color: #6b8e23;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-}
+----
 
-#login-popup form button:hover {
-    background-color: #2d6a3e;
-}
-Fondo Oscuro (#popup-overlay):
+Bitácora de Cambios
+- Se añadieron estilos para gestionar la apariencia del botón de "Iniciar sesión", la ventana emergente y el fondo oscuro (overlay).
+- Se implementaron estilos específicos para la nueva sección de precios y el formulario de contacto.
+- Se mejoraron los estilos de las tablas para una mejor presentación de datos.
 
-Una capa semitransparente que bloquea el contenido de la página mientras se muestra la ventana emergente.
-Código:
-#popup-overlay {
-    display: none; /* Oculto inicialmente */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-}
+----
 
-----------------------------------------------------------------------------------------------------------------------------------------------
-Bitacora de cambios CSS:
-Estilos CSS para la Sección de Precios
-Descripción del Cambio:
-Se añadieron estilos CSS para la nueva sección de precios y para el formulario en la sección de contacto.
+Explicación de Líneas de Código Cruciales
 
-Código CSS Añadido:
-/* Sección de Precios */
-#precios {
-    padding: 40px 20px;
-    margin: 20px 0;
-    background-color: rgba(26, 71, 42, 0.3);
-    border-radius: 10px;
-}
+1. Estilo del Cuerpo (base.css)
+   body {
+       font-family: Arial, sans-serif;
+       margin: 0;
+       padding: 0;
+       background-color: black;
+       color: #fff;
+       line-height: 1.6;
+       overflow-x: hidden;
+   }
+   Define el estilo base del cuerpo de la página, estableciendo la tipografía y colores de fondo y texto.
 
-/* Formulario de Contacto */
-#contact-form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
+2. Sidebar (sidebar.css)
+   #sidebar {
+       position: fixed;
+       left: -280px;
+       width: 280px;
+       transition: left 0.3s;
+       background-color: #1a472a;
+       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+   }
+   Define la apariencia y comportamiento del sidebar, incluyendo su posición y color de fondo.
 
-#contact-form input,
-#contact-form textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+3. Encabezado Principal (header.css)
+   #header {
+       background-color: green;
+       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+   }
+   Establece el estilo del encabezado principal del sitio, destacándolo visualmente.
 
-#contact-form button {
-    padding: 10px;
-    background-color: #6b8e23;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-}
+4. Estilo del Botón "Iniciar Sesión" (auth.css)
+   #login-btn {
+       position: absolute;
+       top: 20px;
+       right: 20px;
+       padding: 10px 15px;
+       background-color: #6b8e23;
+       border: none;
+       color: white;
+       font-weight: bold;
+       border-radius: 5px;
+       cursor: pointer;
+       transition: background-color 0.3s ease;
+   }
+   Define la apariencia del botón de inicio de sesión, incluyendo efectos de hover.
 
-#contact-form button:hover {
-    background-color: #2d6a3e;
-}
+5. Ventana Emergente (auth.css)
+   #login-popup {
+       display: none;
+       position: fixed;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       width: 300px;
+       padding: 20px;
+       background-color: #fff;
+       border-radius: 10px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+       z-index: 1000;
+       color: black;
+   }
+   Define el estilo de la ventana emergente de inicio de sesión, asegurando que sea visualmente atractiva y centrada.
+
+6. Fondo Oscuro (Overlay) (auth.css)
+   #overlay {
+       display: none;
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(0, 0, 0, 0.7);
+       z-index: 999;
+   }
+   Establece el fondo oscuro que aparece detrás de la ventana emergente, mejorando la visibilidad del contenido.
+
+7. Sección de Precios (pricing.css)
+   .pricing-section {
+       display: flex;
+       justify-content: space-around;
+       padding: 20px;
+       background-color: #f4f4f4;
+   }
+   Define el estilo de la sección de precios, asegurando que los elementos se distribuyan de manera uniforme.
+
+8. Estilo de Formularios (forms.css)
+   input[type="text"],
+   input[type="email"],
+   textarea {
+       width: 100%;
+       padding: 10px;
+       margin: 10px 0;
+       border: 1px solid #ccc;
+       border-radius: 5px;
+   }
+   Establece el estilo de los campos de entrada y textarea, asegurando que sean fáciles de usar y visualmente atractivos.
+
+9. Galería de Imágenes (gallery.css)
+   .gallery {
+       display: grid;
+       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+       gap: 10px;
+   }
+   Define la disposición de la galería de imágenes, utilizando un diseño de cuadrícula responsivo.
+
+10. Media Queries (responsive.css)
+   @media (max-width: 768px) {
+       #sidebar {
+           left: 0;
+       }
+       .gallery {
+           grid-template-columns: 1fr;
+       }
+   }
+   Implementa ajustes responsivos para mejorar la visualización en dispositivos móviles, adaptando el sidebar y la galería.
+
+----
+
+Conclusión
+Este documento proporciona una visión general de los estilos CSS utilizados en el proyecto "Hotel Cerrito". Cada sección y estilo se ha diseñado para mejorar la experiencia del usuario, asegurando que el sitio sea atractivo y funcional en todos los dispositivos. Se recomienda revisar y actualizar regularmente los estilos para mantener la coherencia y la modernidad del diseño.
