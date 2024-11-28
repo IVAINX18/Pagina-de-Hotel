@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Ejecutamos la consulta
     $stmt->execute();
 
-    // Obtenemos los datos del usuario como un arreglo asociativo
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    // Obtenemos el resultado de la consulta
+    $user = $stmt->fetch();
 
     // Verificamos si el usuario existe y si la contraseña proporcionada es correcta
     if ($user && password_verify($password, $user['password'])) {
