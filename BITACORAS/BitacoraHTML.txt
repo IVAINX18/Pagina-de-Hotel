@@ -1,196 +1,75 @@
-Bitácora y Documentación del Código HTML del Proyecto "Hotel Cerrito"
-1. Estructura del Documento
-El código HTML está diseñado para una página web de un hotel llamado Hotel Cerrito. A continuación, se describen los elementos y funcionalidades clave.
+Documentación de index.html
+28/11/2024
 
-2. Cabecera del Documento (<head>)
-La sección <head> incluye metadatos y recursos externos importantes para el correcto funcionamiento y diseño de la página:
+Descripción General
+El archivo index.html es la página principal del sitio web del "Hotel Cerrito". Esta página está estructurada en HTML5 y utiliza CSS y JavaScript para el diseño y la funcionalidad. El objetivo principal es proporcionar información sobre el hotel, sus servicios, precios y contacto, así como permitir a los usuarios iniciar sesión y registrarse.
 
-Declaración de codificación: <meta charset="UTF-8"> define el conjunto de caracteres como UTF-8.
-Adaptabilidad a dispositivos móviles: <meta name="viewport" content="width=device-width, initial-scale=1.0"> asegura que el diseño sea responsive.
-Título: <title>Hotel Cerrito</title> especifica el título que aparece en la pestaña del navegador.
-Hojas de estilo y fuentes externas:
-<link rel="stylesheet" href="style.css"> conecta una hoja de estilos personalizada.
-<link href="https://cdnjs.cloudflare.com/.../css/all.min.css"> incluye la librería de íconos de Font Awesome para íconos decorativos.
-3. Cuerpo del Documento (<body>)
-El cuerpo está dividido en varias secciones principales, cada una con su propósito:
+----
 
-a) Sidebar (Menú lateral)
-Check oculto: <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox"> se utiliza para controlar la visibilidad del sidebar en pantallas pequeñas.
-Sidebar:
-Contiene un encabezado (<div class="sidebar-header">) con un logo y el nombre del hotel.
-Un menú de navegación (<nav class="sidebar-nav">) con enlaces a las secciones clave: Inicio, Servicios y Contacto.
-b) Contenido Principal
-Incluye encabezados, secciones y contenido dinámico para la interacción con el usuario.
+Estructura del Documento
+1. Encabezado (head):
+   - Define la codificación de caracteres y el título de la página.
+   - Incluye enlaces a hojas de estilo CSS y scripts JavaScript.
+   - Carga un icono de Font Awesome para iconos en la interfaz.
 
-1. Encabezado Principal
-Logo y título: Un logo (imagen) y el nombre del hotel están alineados al centro.
-Navegación principal: Lista horizontal con enlaces a las secciones: Bienvenidos, Servicios, Galería y Contacto. Diseñado con estilo inline y bordes redondeados.
-2. Secciones
-Cada sección está identificada con un id único para facilitar la navegación.
+2. Cuerpo (body):
+   - Contiene la estructura principal de la página, que incluye:
+     - Un sidebar de navegación.
+     - Ventanas emergentes para autenticación.
+     - Contenido principal.
+     - Un pie de página.
 
-Bienvenidos: Texto introductorio sobre el hotel.
-Servicios: Lista de servicios disponibles (habitaciones, gimnasio, restaurante, eventos).
-Galería:
-Estructura de imágenes: Cada elemento contiene una imagen (<img>) con una descripción en <p>.
-Ejemplo: Habitación, Restaurante, Río, Gimnasio.
-Contacto: Información para comunicarte con el hotel, incluyendo correo, teléfono y dirección.
-c) Footer
-Incluye derechos de autor y enlaces a redes sociales.
-4. Uso de Imágenes
-El proyecto utiliza varias imágenes relevantes para las instalaciones del hotel:
+----
 
-Logo: logo.jpg.
-Galería: Varias imágenes almacenadas en la carpeta fotos_git/.
-5. Iconografía
-Se usan íconos proporcionados por Font Awesome para enriquecer el diseño:
-Ejemplo: Ícono de casa (<i class="fas fa-home"></i>).
-6. Estilización
-La hoja de estilos style.css controla los colores, tipografía, y disposición.
-Los estilos inline también se usan en partes como:
-Navegación principal (bordes redondeados y fondo semitransparente).
+Funcionalidades Clave
+- Sidebar de Navegación: Permite a los usuarios navegar entre diferentes secciones del sitio, como Inicio, Servicios, Precios y Contacto.
+- Ventanas Emergentes: Incluye formularios para iniciar sesión y registrarse, controlados por JavaScript.
+- Secciones de Contenido: Cada sección proporciona información relevante sobre el hotel, incluyendo descripciones, servicios ofrecidos, galería de imágenes, precios y detalles de contacto.
+- Formulario de Contacto: Permite a los usuarios enviar mensajes al hotel.
 
------------------------------------------------------------------------------------------------
-Bitácora de Cambios: HTML
-Descripción General: Se añadió un botón en la parte superior derecha de la página principal para "Iniciar sesión". Este botón abre una ventana emergente centrada que contiene un formulario para el ingreso de usuario y contraseña.
+----
 
-Cambios Realizados:
+Bitácora de Cambios
+  - Estructura básica de HTML5.
+  - Inclusión de secciones para navegación, contenido y pie de página.
+  - Implementación de formularios de inicio de sesión y registro.
 
-Botón "Iniciar Sesión":
+----
 
-Se agregó un botón con ID login-btn dentro del <header> principal.
-El botón está posicionado en la esquina superior derecha y tiene estilos básicos de color, borde redondeado y efectos visuales.
-Código:
-<button id="login-btn" style="position: absolute; top: 20px; right: 20px; padding: 10px 15px; background-color: #6b8e23; border: none; color: white; font-weight: bold; border-radius: 5px; cursor: pointer;">
-    Iniciar sesión
-</button>
-Ventana Emergente:
+Explicación de Líneas de Código Cruciales
 
-Se agregó una ventana emergente para manejar el formulario de inicio de sesión.
-La ventana tiene un título, un formulario con dos campos de entrada (Usuario y Contraseña) y un botón para enviar.
-La ventana está acompañada de un fondo oscuro (overlay) para bloquear el contenido de la página mientras se muestra la ventana emergente.
-Código:
-<!-- Fondo oscuro -->
-<div id="popup-overlay"></div>
+1. Definición del Documento
+   <!DOCTYPE html>
+   <html lang="es">
+   Define el tipo de documento como HTML5 y establece el idioma de la página como español.
 
-<!-- Ventana emergente de inicio de sesión -->
-<div id="login-popup">
-    <h2>Iniciar Sesión</h2>
-    <form action="login.php" method="POST">
-        <input type="text" name="username" placeholder="Usuario" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
-        <button type="submit">Entrar</button>
-    </form>
-</div>
+2. Codificación de Caracteres
+   <meta charset="UTF-8">
+   Establece la codificación de caracteres a UTF-8, permitiendo la correcta visualización de caracteres especiales.
 
-Script JavaScript:
-Se añadió un script en línea para gestionar la apertura y cierre de la ventana emergente.
-El script activa la ventana y el fondo oscuro al hacer clic en el botón de inicio de sesión, y los oculta al hacer clic en el fondo oscuro.
-Código:
-<script>
-    const loginBtn = document.getElementById('login-btn');
-    const loginPopup = document.getElementById('login-popup');
-    const popupOverlay = document.getElementById('popup-overlay');
+3. Enlace a Estilos CSS
+   <link rel="stylesheet" href="CSS/main.css">
+   Enlaza el archivo CSS que contiene los estilos para la página, permitiendo personalizar su apariencia.
 
-    // Mostrar la ventana emergente
-    loginBtn.addEventListener('click', () => {
-        loginPopup.style.display = 'block';
-        popupOverlay.style.display = 'block';
-    });
+4. Inclusión de Scripts JavaScript
+   <script src="JS/auth.js" defer></script>
+   <script src="JS/navigation.js" defer></script>
+   Incluye scripts JavaScript que manejan la autenticación y la navegación. El atributo defer asegura que los scripts se ejecuten después de que el documento se haya cargado.
 
-    // Ocultar la ventana emergente al hacer clic en el fondo oscuro
-    popupOverlay.addEventListener('click', () => {
-        loginPopup.style.display = 'none';
-        popupOverlay.style.display = 'none';
-    });
-</script>
+5. Control del Sidebar
+   <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
+   Este checkbox controla la visibilidad del sidebar mediante CSS, permitiendo que los usuarios lo oculten o muestren.
 
-----------------------------------------------------------------------------------------------------------------------------------------
-Bitacora de cambios HTML:
-Descripción:
-Este script proporciona un desplazamiento suave para los enlaces que apuntan a secciones dentro de la misma página. 
-Al hacer clic en un enlace con un href que comienza con #, el navegador se desplaza suavemente hacia la sección correspondiente.
+6. Ventana Emergente de Inicio de Sesión
+   <div id="login-popup" class="auth-popup" style="display: none;">
+   <form id="login-form" action="PHP\login.php" method="POST">
+   Define una ventana emergente para el inicio de sesión que está oculta por defecto. El formulario envía datos a login.php mediante el método POST.
 
-Código:
-// Desplazamiento suave para enlaces
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+7. Formulario de Contacto
+   <section id="contacto">
+   <form id="contact-form">
+   Sección de contacto que incluye un formulario para que los usuarios envíen mensajes. Este formulario puede ser manejado posteriormente con JavaScript para mejorar la experiencia del usuario.
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-Funcionamiento:
-document.querySelectorAll('a[href^="#"]'): Selecciona todos los enlaces (<a>) cuyo atributo href comienza con #. Esto incluye todos los enlaces que apuntan a secciones dentro de la misma página.
-Iteración sobre Enlaces:
-
-.forEach(anchor => {...}): Itera sobre cada enlace seleccionado y ejecuta la función proporcionada.
-Evento de Clic:
-
-anchor.addEventListener('click', function(e) {...}): Añade un evento de clic a cada enlace. Cuando se hace clic en un enlace, se ejecuta la función.
-Prevención del Comportamiento Predeterminado:
-
-e.preventDefault(): Previene que el navegador realice el desplazamiento inmediato hacia la sección, permitiendo que el desplazamiento suave se ejecute en su lugar.
-Desplazamiento Suave:
-
-document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' }):
-this.getAttribute('href'): Obtiene el valor del atributo href del enlace clicado.
-document.querySelector(...): Selecciona el elemento correspondiente al href.
-.scrollIntoView({ behavior: 'smooth' }): Desplaza suavemente la vista hacia el elemento seleccionado.
-
-------------------------------------------------------------------------------------------------------------------------------------------
-Bitacora de Cambios HTML:
-Cambios en la Sidebar
-Descripción del Cambio:
-Se añadió un enlace a la sección de precios en la sidebar para facilitar la navegación.
-
-Código Modificado:
-<!-- Sidebar -->
-<div class="sidebar">
-    <div class="sidebar-header">
-        <img src="logo.jpg" alt="Logo" class="sidebar-logo">
-        <h3>Hotel Cerrito</h3>
-    </div>
-    <nav class="sidebar-nav">
-        <ul>
-            <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
-            <li><a href="#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
-            <li><a href="#precios"><i class="fas fa-tag"></i> Precios</a></li> <!-- Enlace a la sección de precios -->
-            <li><a href="#contacto"><i class="fas fa-phone"></i> Contacto</a></li>
-        </ul>
-    </nav>
-</div>
-
-Cambios en el Header
-Descripción del Cambio:
-Se añadió un enlace a la sección de precios en la barra de navegación (header) para mejorar la accesibilidad.
-
-Código Modificado:
-Copiar
-<!-- Barra de Navegación (Header) -->
-<nav>
-    <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#precios">Precios</a></li> <!-- Enlace a la sección de precios -->
-        <li><a href="#contacto">Contacto</a></li>
-        <!-- Otros enlaces -->
-    </ul>
-</nav>
-
-Cambios en la Sección de Precios
-Descripción del Cambio:
-Se creó una nueva sección de precios en pesos colombianos para informar a los usuarios sobre las tarifas.
-
-Código Añadido:
-<!-- Sección de Precios -->
-<section id="precios">
-    <h2>Precios</h2>
-    <ul>
-        <li>Habitación Sencilla: $150,000 COP</li>
-        <li>Habitación Doble: $250,000 COP</li>
-        <li>Suite: $400,000 COP</li>
-        <li>Desayuno incluido: $30,000 COP</li>
-    </ul>
-</section>
+8. Pie de Página
+   <footer>
+   Define el pie de página de la página web, que incluye derechos de autor y enlaces a redes sociales.
