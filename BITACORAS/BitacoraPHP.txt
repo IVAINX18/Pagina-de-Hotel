@@ -1,0 +1,63 @@
+Bitácora y Documentación del Código PHP del Proyecto "Hotel Cerrito"
+28/11/2024
+
+Descripción General
+El código PHP del proyecto "Hotel Cerrito" gestiona la lógica del servidor, incluyendo la conexión a la base de datos, la autenticación de usuarios, el registro de nuevos usuarios y la verificación de credenciales. Se implementan prácticas de seguridad como el uso de declaraciones preparadas para prevenir inyecciones SQL y el cifrado de contraseñas.
+
+----
+
+Estructura del Documento
+1. Conexión a la Base de Datos (db.php):
+   - Establece la conexión a la base de datos utilizando PDO.
+   - Configura el modo de error para lanzar excepciones en caso de fallos.
+
+2. Prueba de Conexión (test.php):
+   - Verifica si la conexión a la base de datos es exitosa.
+   - Muestra un mensaje de éxito o error según corresponda.
+
+3. Registro de Usuarios (register.php):
+   - Maneja el registro de nuevos usuarios.
+   - Verifica si el nombre de usuario ya está en uso.
+   - Cifra la contraseña antes de almacenarla en la base de datos.
+
+4. Inicio de Sesión (login.php):
+   - Procesa las solicitudes de inicio de sesión.
+   - Verifica las credenciales del usuario y muestra un mensaje de bienvenida o error.
+
+----
+
+Bitácora de Cambios
+- Se implementó la conexión a la base de datos utilizando PDO para mejorar la seguridad.
+- Se añadieron funciones para el registro y autenticación de usuarios con cifrado de contraseñas.
+- Se mejoró la gestión de errores al conectar con la base de datos.
+
+----
+
+Explicación de Líneas de Código Cruciales
+
+1. Conexión a la Base de Datos (db.php)
+   $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
+   Establece la conexión a la base de datos utilizando PDO, lo que permite manejar errores de forma más efectiva.
+
+2. Prueba de Conexión (test.php)
+   if ($conn) {
+       echo "Conexión exitosa a la base de datos.";
+   } else {
+       echo "Error al conectar.";
+   }
+   Verifica si la conexión a la base de datos fue exitosa y muestra un mensaje correspondiente.
+
+3. Registro de Usuarios (register.php)
+   $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+   Cifra la contraseña del usuario antes de guardarla en la base de datos, aumentando la seguridad de la información del usuario.
+
+4. Inicio de Sesión (login.php)
+   if ($user && password_verify($password, $user['password'])) {
+       echo "Bienvenido, " . htmlspecialchars($username) . "!";
+   }
+   Verifica si las credenciales del usuario son correctas y muestra un mensaje de bienvenida, asegurando que se utiliza htmlspecialchars para prevenir XSS.
+
+----
+
+Conclusión
+Este documento proporciona una visión general de la lógica PHP utilizada en el proyecto "Hotel Cerrito". Cada archivo PHP se ha diseñado para gestionar de manera segura y eficiente la interacción con la base de datos y la autenticación de usuarios. Se recomienda revisar y actualizar regularmente el código para mantener la seguridad y la funcionalidad del sistema.
