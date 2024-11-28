@@ -63,7 +63,7 @@
             <label for="sidebar-toggle" class="sidebar-toggle">
                 <i class="fas fa-bars"></i>
             </label>
-            <img src="logo.jpg" alt="Logo" class="logo">
+            <img src="GALERIA\logo.jpg" alt="Logo" class="logo">
             <h1 class="hotel-title">
                 Hotel Cerrito
             </h1>
@@ -108,7 +108,6 @@
                 </ul>
             </section>
 
-            <!--Galeria-->
             <section id="galeria">
                 <h2>Galería</h2>
                 <p><strong>Explora imágenes de nuestras instalaciones:</strong></p>
@@ -122,15 +121,16 @@
                         <img src="GALERIA/restaurante.jpg" alt="Restaurante">
                     </div>
                     <div class="gallery-item">
-                        <img src="GALERIA/Rio.jpg" alt="Río">
                         <p>Río</p>
+                        <img src="GALERIA/Rio.jpg" alt="Río">
                     </div>
                     <div class="gallery-item">
-                        <img src="GALERIA/gimnasio.jpg" alt="Gimnasio">
                         <p>Gimnasio</p>
+                        <img src="GALERIA/gimnasio.jpg" alt="Gimnasio">
                     </div>
                 </div>
-            </section> 
+            </section>
+
             
             <!-- Precios -->
             <section id="precios">
@@ -178,12 +178,12 @@
                 <p><strong>Teléfono:</strong> 123-456-7890</p>
                 <p><strong>Dirección:</strong> Vereda #123, Cañon del combeima</p>
                 
-                <form id="contact-form">
+                <form id="contact-form" action="PHP\contacto.php" method="POST">
                     <input type="text" name="nombre" placeholder="Tu Nombre" required>
                     <input type="email" name="correo" placeholder="Tu Correo" required>
                     <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
                     <button type="submit">Enviar</button>
-                </form>
+                </form>                
             </section>
             
         </main>

@@ -1,10 +1,10 @@
-/* Import all CSS modules */
-@import 'base.css';
-@import 'sidebar.css';
-@import 'auth.css';
-@import 'header.css';
-@import 'sections.css';
-@import 'gallery.css';
-@import 'forms.css';
-@import 'tables.css';
-@import 'responsive.css';
+/* Importa todos los módulos de CSS necesarios para el sitio web */
+@import 'base.css'; /* Estilos base generales para el sitio */
+@import 'sidebar.css'; /* Estilos específicos para la barra lateral */
+@import 'auth.css'; /* Estilos para las páginas de autenticación (login, registro) */
+@import 'header.css'; /* Estilos para el encabezado del sitio */
+@import 'sections.css'; /* Estilos para las diferentes secciones del contenido */
+@import 'gallery.css'; /* Estilos específicos para la galería de imágenes */
+@import 'forms.css'; /* Estilos para formularios utilizados en el sitio */
+@import 'tables.css'; /* Estilos para tablas de datos */
+@import 'responsive.css'; /* Estilos para la adaptabilidad en dispositivos móviles */

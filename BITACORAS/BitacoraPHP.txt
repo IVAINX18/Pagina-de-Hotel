@@ -61,3 +61,73 @@ Explicación de Líneas de Código Cruciales
 
 Conclusión
 Este documento proporciona una visión general de la lógica PHP utilizada en el proyecto "Hotel Cerrito". Cada archivo PHP se ha diseñado para gestionar de manera segura y eficiente la interacción con la base de datos y la autenticación de usuarios. Se recomienda revisar y actualizar regularmente el código para mantener la seguridad y la funcionalidad del sistema.
+
+----------------------------------------------------------------------------
+
+Bitácora y Documentación del Código PHP del Proyecto "Hotel Cerrito"
+28/11/2024
+
+Descripción General
+El código PHP del archivo "contacto.php" gestiona el envío de mensajes de contacto desde un formulario. Se conecta a una base de datos para almacenar los mensajes enviados por los usuarios, asegurando que se manejen adecuadamente las entradas del formulario y se eviten inyecciones SQL.
+
+----
+
+Estructura del Documento
+1. Configuración de la Base de Datos:
+   - Define las variables necesarias para la conexión a la base de datos, incluyendo el servidor, usuario, contraseña y nombre de la base de datos.
+
+2. Conexión a la Base de Datos:
+   - Establece la conexión a la base de datos utilizando MySQLi.
+   - Verifica si la conexión fue exitosa y maneja cualquier error de conexión.
+
+3. Manejo del Formulario:
+   - Verifica si el formulario ha sido enviado mediante el método POST.
+   - Recibe y escapa los datos del formulario (nombre, correo, mensaje) para evitar inyecciones SQL.
+
+4. Validación de Campos:
+   - Comprueba que los campos del formulario no estén vacíos antes de proceder a la inserción en la base de datos.
+
+5. Inserción de Datos:
+   - Inserta los datos del formulario en la tabla "contactos" de la base de datos.
+   - Maneja errores en la inserción y proporciona retroalimentación al usuario.
+
+6. Cierre de Conexión:
+   - Cierra la conexión a la base de datos una vez que se ha procesado el formulario.
+
+----
+
+Bitácora de Cambios
+- Se implementó la conexión a la base de datos utilizando MySQLi.
+- Se añadió la validación de los campos del formulario para mejorar la experiencia del usuario.
+- Se implementó el escape de caracteres para prevenir inyecciones SQL al insertar datos en la base de datos.
+
+----
+
+Explicación de Líneas de Código Cruciales
+
+1. Conexión a la Base de Datos
+   $conn = new mysqli($servidor, $usuario, $password, $baseDatos);
+   Establece la conexión a la base de datos utilizando MySQLi, lo que permite realizar operaciones de base de datos de manera sencilla.
+
+2. Verificación de Conexión
+   if ($conn->connect_error) {
+       die("Error de conexión: " . $conn->connect_error);
+   }
+   Verifica si la conexión a la base de datos fue exitosa y muestra un mensaje de error si no lo fue.
+
+3. Recepción de Datos del Formulario
+   $nombre = $conn->real_escape_string($_POST['nombre']);
+   Escapa el nombre recibido del formulario para prevenir inyecciones SQL.
+
+4. Inserción de Datos
+   $sql = "INSERT INTO contactos (nombre, correo, mensaje) VALUES ('$nombre', '$correo', '$mensaje')";
+   Inserta los datos del formulario en la tabla "contactos" de la base de datos.
+
+5. Mensaje de Éxito/Error
+   echo "Mensaje enviado correctamente. Gracias por contactarnos.";
+   Proporciona retroalimentación al usuario sobre el estado del envío del mensaje.
+
+----
+
+Conclusión
+Este documento proporciona una visión general de la lógica PHP utilizada en el archivo "contacto.php". Se ha diseñado para gestionar de manera efectiva el envío de mensajes de contacto y la interacción con la base de datos, asegurando la seguridad y la correcta validación de los datos ingresados por los usuarios. Se recomienda revisar y actualizar regularmente el código para mantener la seguridad y la funcionalidad del sistema.
