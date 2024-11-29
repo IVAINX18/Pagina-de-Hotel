@@ -75,3 +75,29 @@
 .auth-popup a:hover {
     text-decoration: underline;
 }
+
+/* Auth Button */
+.auth-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #6b8e23;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+    background-color: #2d6a3e;
+}
+
+.auth-btn i {
+    font-size: 16px;
+}

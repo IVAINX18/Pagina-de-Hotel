@@ -1,22 +1,24 @@
 <?php
-require 'db.php';
+session_start();
+header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+// In a real application, validate against database
+$username = $_POST['username'] ?? '';
+$password = $_POST['password'] ?? '';
 
-    $stmt = $conn->prepare("SELECT * FROM clients WHERE username = :username");
-    $stmt->bindParam(':username', $username);
-    $stmt->execute();
-
-    $user = $stmt->fetch();
-
-    if ($user && password_verify($password, $user['password'])) {
-        session_start();
-        $_SESSION['user'] = $username; // Almacenar usuario en sesión
-        echo json_encode(['success' => true]);
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Usuario o contraseña incorrectos.']);
-    }
+// Demo validation - replace with database validation
+if ($username === 'demo' && $password === 'demo') {
+    $_SESSION['user'] = [
+        'id' => 1,
+        'username' => $username
+    ];
+    echo json_encode([
+        'success' => true,
+        'message' => 'Login successful'
+    ]);
+} else {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Invalid credentials'
+    ]);
 }
-?>
