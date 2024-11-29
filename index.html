@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="CSS/main.css">
         <script src="JS/auth.js" defer></script>
         <script src="JS/navigation.js" defer></script>
+        <script src="JS/alert_reserva.js" defer></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     </head>
 
@@ -29,7 +30,7 @@
             <li><a href="#contacto"><i class="fas fa-phone"></i> Contacto</a></li>
             
             <!-- Nueva opción para Reservas -->
-            <li><a href="HTML\reservas.html" id="reservas-link"><i class="fas fa-calendar-check"></i> Reservas</a></li>
+            <li><a href="#" id="reservas-link"><i class="fas fa-calendar-check"></i> Reservas</a></li>
         </ul>
     </nav>    
 </div>
@@ -73,6 +74,15 @@
     </form>
     <p>¿Eres Cliente? <a href="#" id="client-login-link">Inicia sesión aquí</a></p>
 </div>
+
+
+<!-- Ventana emergente de alerta -->
+<div id="alert-popup" class="auth-popup" style="display: none;">
+    <h2>Alerta</h2>
+    <p>Es necesario iniciar sesión para realizar una reserva.</p>
+    <button id="login-redirect-btn">Iniciar Sesión</button>
+</div>
+
 
     <!-- Main Content -->
     <div class="main-content">
