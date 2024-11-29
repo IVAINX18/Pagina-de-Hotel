@@ -1,0 +1,8 @@
+CREATE TABLE inventario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    categoria ENUM('utileria', 'comida', 'uniformes', 'implementos de aseo') NOT NULL,
+    cantidad INT NOT NULL,
+    descripcion TEXT,
+    fecha_agregado TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
