@@ -41,24 +41,37 @@
 <!-- Ventana emergente de inicio de sesión -->
 <div id="login-popup" class="auth-popup" style="display: none;">
     <h2>Iniciar Sesión</h2>
-    <form id="login-form" action="PHP\login.php" method="POST">
+    <form id="login-form" action="PHP/login.php" method="POST">
         <input type="text" name="username" placeholder="Usuario" required>
         <input type="password" name="password" placeholder="Contraseña" required>
         <button type="submit">Entrar</button>
     </form>
     <p>¿No tienes una cuenta? <a href="#" id="register-link">Regístrate aquí</a></p>
+    <p>¿Eres empleado? <a href="#" id="employee-login-link">Inicia sesión aquí</a></p><!-- Nuevo párrafo para empleados -->
 </div>
 
 <!-- Ventana emergente de registro -->
 <div id="register-popup" class="auth-popup" style="display: none;">
     <h2>Registro</h2>
-    <form id="register-form" action="PHP\register.php" method="POST">
+    <form id="register-form" action="PHP/register.php" method="POST">
         <input type="text" name="username" placeholder="Usuario" required>
         <input type="password" name="password" placeholder="Contraseña" required>
         <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" required>
         <button type="submit">Registrar</button>
     </form>
     <p>¿Ya tienes una cuenta? <a href="#" id="login-link">Inicia sesión aquí</a></p>
+    <p>¿Eres empleado? <a href="#" id="employee-login-link">Inicia sesión aquí</a></p> <!-- Nuevo párrafo para empleados -->
+</div>
+
+<!-- Ventana emergente de inicio de sesión para empleados -->
+<div id="login-employee-popup" class="auth-popup" style="display: none;">
+    <h2>Iniciar Sesión Empleados</h2>
+    <form id="login-form" action="PHP/login_employee.php" method="POST">
+        <input type="text" name="username" placeholder="Usuario" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Entrar</button>
+    </form>
+    <p>¿Eres Cliente? <a href="#" id="client-login-link">Inicia sesión aquí</a></p>
 </div>
 
     <!-- Main Content -->
@@ -174,48 +187,8 @@
                     </tbody>
                 </table>
             </section>
-
-            <section id="formulario-reserva">
-                <h2>Hacer Reserva</h2>
-                <form action="PHP\reservas.php" method="POST" onsubmit="return validarFormulario()">
-                    <!-- Datos personales -->
-                    <input type="text" name="nombre" placeholder="Nombre" required>
-                    <input type="text" name="apellido" placeholder="Apellido" required>
-                    <input type="tel" name="telefono" placeholder="Teléfono" required>
-                    
-                    <!-- Selección de habitación -->
-                    <select name="habitacion" required>
-                        <option value="">Selecciona Habitación</option>
-                        <option value="Habitación Sencilla">Habitación Sencilla</option>
-                        <option value="Habitación Doble">Habitación Doble</option>
-                        <option value="Suite">Suite</option>
-                        <option value="Habitación Familiar">Habitación Familiar</option>
-                        <option value="Penthouse">Penthouse</option>
-                    </select>
-                    
-                    <!-- Fechas -->
-                    <label>Fecha de Entrada:</label>
-                    <input type="date" name="fecha_entrada" required>
-                    
-                    <label>Fecha de Salida:</label>
-                    <input type="date" name="fecha_salida" required>
-                    
-                    <!-- Precios -->
-                    <select name="precio" required>
-                        <option value="">Selecciona Precio</option>
-                        <option value="150000">Habitación Sencilla - $150,000</option>
-                        <option value="250000">Habitación Doble - $250,000</option>
-                        <option value="400000">Suite - $400,000</option>
-                        <option value="500000">Habitación Familiar - $500,000</option>
-                        <option value="600000">Penthouse - $600,000</option>
-                        <option value="15000">Desayuno incluido - $15,000</option>
-                    </select>
-                    
-                    <!-- Botón de envío -->
-                    <button type="submit">Reservar</button>
-                </form>
-            </section>
             
+            <!-- Contacto -->
             
             <section id="contacto">
                 <h2>Contacto</h2>

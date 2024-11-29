@@ -2,9 +2,12 @@
 const loginBtn = document.getElementById('login-btn'); // Botón para abrir el popup de inicio de sesión
 const loginPopup = document.getElementById('login-popup'); // Popup para el formulario de inicio de sesión
 const registerPopup = document.getElementById('register-popup'); // Popup para el formulario de registro
+const loginEmployeePopup = document.getElementById('login-employee-popup'); // Popup para el formulario de inicio de sesión de empleados
 const popupOverlay = document.getElementById('popup-overlay'); // Capa de fondo que oscurece el resto de la página cuando un popup está abierto
 const registerLink = document.getElementById('register-link'); // Enlace para abrir el popup de registro desde el de inicio de sesión
 const loginLink = document.getElementById('login-link'); // Enlace para abrir el popup de inicio de sesión desde el de registro
+const employeeLoginLink = document.getElementById('employee-login-link');
+const clientLoginLink = document.getElementById('client-login-link'); // Enlace para abrir el popup de inicio de sesión de empleados
 
 // Función para mostrar un popup específico
 function showPopup(popup) {
@@ -16,6 +19,7 @@ function showPopup(popup) {
 function hidePopups() {
     loginPopup.style.display = 'none'; // Oculta el popup de inicio de sesión
     registerPopup.style.display = 'none'; // Oculta el popup de registro
+    loginEmployeePopup.style.display = 'none'; // Oculta el popup de inicio de sesión de empleados
     popupOverlay.style.display = 'none'; // Oculta la capa de fondo
 }
 
@@ -40,6 +44,20 @@ loginLink?.addEventListener('click', (e) => {
     showPopup(loginPopup); // Muestra el popup de inicio de sesión
 });
 
+// Al hacer clic en el enlace de inicio de sesión de empleados, se oculta el popup de inicio de sesión y se muestra el de inicio de sesión de empleados
+employeeLoginLink?.addEventListener('click', (e) => {
+    e.preventDefault(); // Previene el comportamiento por defecto
+    loginPopup.style.display = 'none'; // Oculta el popup de inicio de sesión
+    showPopup(loginEmployeePopup); // Muestra el popup de inicio de sesión de empleados
+});
+
+// Al hacer clic en el enlace de inicio de sesión de clientes, se oculta el popup de inicio de sesión de empleados y se muestra el de inicio de sesión
+clientLoginLink?.addEventListener('click', (e) => {
+    e.preventDefault(); // Previene el comportamiento por defecto
+    loginEmployeePopup.style.display = 'none'; // Oculta el popup de empleados
+    showPopup(loginPopup); // Muestra el popup de usuarios
+});
+
 // Manejo del envío del formulario de inicio de sesión
 document.getElementById('login-form')?.addEventListener('submit', async (e) => {
     e.preventDefault(); // Previene que la página se recargue al enviar el formulario
@@ -50,50 +68,46 @@ document.getElementById('login-form')?.addEventListener('submit', async (e) => {
         const response = await fetch('PHP/login.php', {
             method: 'POST',
             body: formData
-        });
-        const data = await response.text(); // Obtiene la respuesta del servidor como texto
-        alert(data); // Muestra la respuesta al usuario
+ });
 
-        // Si la respuesta incluye 'exitosamente', se ocultan los popups
-        if (data.includes('exitosamente')) {
-            hidePopups();
+        const result = await response.json(); // Espera la respuesta en formato JSON
+
+        if (result.success) {
+            // Si el inicio de sesión es exitoso, redirige al usuario
+            window.location.href = 'dashboard.php'; // Cambia a la página de destino
+        } else {
+            // Si hay un error, muestra un mensaje
+            alert(result.message); // Muestra el mensaje de error
         }
     } catch (error) {
-        console.error('Error:', error); // Muestra el error en la consola
-        alert('Error al iniciar sesión'); // Informa al usuario sobre el error
+        console.error('Error al iniciar sesión:', error); // Manejo de errores
+        alert('Ocurrió un error al intentar iniciar sesión.'); // Mensaje de error genérico
     }
 });
 
-// Manejo del envío del formulario de registro
-document.getElementById('register-form')?.addEventListener('submit', async (e) => {
+// Manejo del envío del formulario de inicio de sesión de empleados
+document.getElementById('login-employee-popup')?.querySelector('form')?.addEventListener('submit', async (e) => {
     e.preventDefault(); // Previene que la página se recargue al enviar el formulario
     const formData = new FormData(e.target); // Obtiene los datos del formulario
-    
-    // Validación para asegurarse de que las contraseñas coincidan
-    const password = formData.get('password'); // Obtiene la contraseña
-    const confirmPassword = formData.get('confirm_password'); // Obtiene la confirmación de la contraseña
-    
-    // Si las contraseñas no coinciden, se muestra un mensaje de error
-    if (password !== confirmPassword) {
-        alert('Las contraseñas no coinciden');
-        return; // Sale de la función si las contraseñas no coinciden
-    }
 
     try {
-        // Envía los datos a 'PHP/register.php' usando el método POST
-        const response = await fetch('PHP/register.php', {
+        // Envía los datos a 'PHP/login_employee.php' usando el método POST
+        const response = await fetch('PHP/login_employee.php', {
             method: 'POST',
             body: formData
         });
-        const data = await response.text(); // Obtiene la respuesta del servidor como texto
-        alert(data); // Muestra la respuesta al usuario
 
-        // Si la respuesta incluye 'registrado exitosamente', se ocultan los popups
-        if (data.includes('registrado exitosamente')) {
-            hidePopups();
+        const result = await response.json(); // Espera la respuesta en formato JSON
+
+        if (result.success) {
+            // Si el inicio de sesión es exitoso, redirige al usuario
+            window.location.href = 'employee_dashboard.php'; // Cambia a la página de destino para empleados
+        } else {
+            // Si hay un error, muestra un mensaje
+            alert(result.message); // Muestra el mensaje de error
         }
     } catch (error) {
-        console.error('Error:', error); // Muestra el error en la consola
-        alert('Error al registrarse'); // Informa al usuario sobre el error
+        console.error('Error al iniciar sesión de empleados:', error); // Manejo de errores
+        alert('Ocurrió un error al intentar iniciar sesión como empleado.'); // Mensaje de error genérico
     }
 });
