@@ -1,4 +1,5 @@
 <?php
+require 'db.php'; // Archivo de conexión a la base de datos
 session_start();
 header('Content-Type: application/json');
 

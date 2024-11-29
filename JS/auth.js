@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     authBtn?.addEventListener('click', () => {
         utils.checkSession().then(isAuthenticated => {
             if (isAuthenticated) {
-                window.location.href = 'php/logout.php';
+                window.location.href = 'PHP/logout.php';
             } else {
                 utils.showPopup('login-popup');
             }
