@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Form elements
+    // Elementos de autenticación
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
     const employeeLoginForm = document.getElementById('employee-login-form');
     const authBtn = document.getElementById('auth-btn');
 
-    // Navigation links
+    // Links de navegacion
     const registerLink = document.getElementById('register-link');
     const loginLink = document.getElementById('login-link');
     const employeeLoginLink = document.getElementById('employee-login-link');
     const clientLoginLink = document.getElementById('client-login-link');
 
-    // Check session status on page load
+    // check session en el onLoad de la página
     checkSession().then(userType => {
         if (userType) {
             updateAuthButton(true);
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle auth button click
+    // eventos y funciones para el botón de autenticación 
     authBtn?.addEventListener('click', () => {
         checkSession().then(isAuthenticated => {
             if (isAuthenticated) {
@@ -67,7 +67,7 @@ window.addEventListener('beforeunload', () => {
 });
 
 
-    // Update auth button based on session status
+    // Función para actualizar el estado del botón de autenticación
     function updateAuthButton(isAuthenticated) {
         if (authBtn) {
             const icon = authBtn.querySelector('i');
@@ -83,7 +83,7 @@ window.addEventListener('beforeunload', () => {
         }
     }
 
-    // Handle form submissions
+    // Función para manejar el envío de formularios
     const handleFormSubmit = async (e, endpoint) => {
         e.preventDefault();
         const formData = new FormData(e.target);
