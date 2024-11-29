@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - Hotel Cerrito</title>
+    <link rel="stylesheet" href="CSS/main.css">
+    <script src="JS/auth.js" defer></script>
+    <script src="JS/navigation.js" defer></script>
+    <script src="JS/utils.js" defer></script>
+    <script src="JS/reservas.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="GALERIA/logo.jpg" alt="Logo" class="sidebar-logo">
+            <h3>Hotel Cerrito</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="index.html#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+                <li><a href="index.html#precios"><i class="fas fa-tag"></i> Precios</a></li>
+                <li><a href="index.html#contacto"><i class="fas fa-phone"></i> Contacto</a></li>
+                <li><a href="#" id="reservas-link" class="active"><i class="fas fa-calendar-check"></i> Reservas</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Banner -->
+    <header style="position: relative; text-align: center; color: white;">
+        <label for="sidebar-toggle" class="sidebar-toggle">
+            <i class="fas fa-bars"></i>
+        </label>
+        <img src="GALERIA/logo.jpg" alt="Logo" class="logo">
+        <h1 class="hotel-title">Reservas</h1>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <section id="reservas">
+            <h2>Realiza tu Reserva</h2>
+            <p>Por favor, completa el siguiente formulario para confirmar tu reserva.</p>
+            <form id="reserva-form" action="PHP/reserva_handler.php" method="POST">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre Completo" required>
+                
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Tu Correo Electrónico" required>
+                
+                <label for="fecha-entrada">Fecha de Entrada:</label>
+                <input type="date" id="fecha-entrada" name="fecha_entrada" required>
+                
+                <label for="fecha-salida">Fecha de Salida:</label>
+                <input type="date" id="fecha-salida" name="fecha_salida" required>
+                
+                <label for="tipo-habitacion">Tipo de Habitación:</label>
+                <select id="tipo-habitacion" name="tipo_habitacion" required>
+                    <option value="sencilla">Sencilla</option>
+                    <option value="doble">Doble</option>
+                    <option value="suite">Suite</option>
+                    <option value="familiar">Familiar</option>
+                    <option value="penthouse">Penthouse</option>
+                </select>
+
+                <label for="comentarios">Comentarios adicionales:</label>
+                <textarea id="comentarios" name="comentarios" placeholder="Información adicional sobre tu reserva"></textarea>
+                
+                <button type="submit">Reservar</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Hotel Cerrito. Todos los derechos reservados.</p>
+        <p>Síguenos en nuestras redes sociales: Facebook | Instagram | Twitter</p>
+    </footer>
+</body>
+</html>

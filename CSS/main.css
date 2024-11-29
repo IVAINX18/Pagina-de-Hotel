@@ -5,6 +5,7 @@
 @import 'header.css'; /* Estilos para el encabezado del sitio */
 @import 'sections.css'; /* Estilos para las diferentes secciones del contenido */
 @import 'gallery.css'; /* Estilos específicos para la galería de imágenes */
-@import 'forms.css'; /* Estilos para formularios utilizados en el sitio */
+@import 'contact-form.css'; /* Estilos para formularios utilizados en el sitio */
 @import 'tables.css'; /* Estilos para tablas de datos */
 @import 'responsive.css'; /* Estilos para la adaptabilidad en dispositivos móviles */
+@import 'reserv-form.css'; /* Estilos para formularios de reserva */

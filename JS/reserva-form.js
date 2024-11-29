@@ -17,22 +17,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const formData = new FormData(form);
 
+        // Validar que todos los campos estén completos
         if (!utils.validateForm(formData)) {
             alert('Por favor, complete todos los campos.');
             return;
         }
 
         try {
-            const response = await fetch('PHP/reservas.php', {
+            // Enviar los datos al servidor
+            const response = await fetch('PHP/reserva_handler.php', {
                 method: 'POST',
                 body: formData
             });
 
+            // Convertir la respuesta del servidor a JSON
             const result = await response.json();
 
+            // Mostrar el mensaje correspondiente según el resultado
             if (result.success) {
                 alert('Reserva realizada con éxito');
-                form.reset();
+                form.reset(); // Limpiar el formulario
             } else {
                 alert('Error: ' + result.message);
             }
