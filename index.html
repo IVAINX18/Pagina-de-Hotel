@@ -33,61 +33,66 @@
         </nav>    
     </div>
 
-    <div id="popup-overlay" class="popup-overlay"></div>
+  <!-- Elementos de los popups (ventanas emergentes) para interacción con el usuario -->
+  <div id="popup-overlay" class="popup-overlay"></div>
     
-    <div id="alert-popup" class="auth-popup">
-        <h2>Es necesario iniciar sesión</h2>
-        <p>Para realizar una reserva, debes iniciar sesión primero.</p>
-        <button id="login-redirect-btn">Iniciar Sesión</button>
-    </div>
+  <div id="alert-popup" class="auth-popup">
+      <h2>Es necesario iniciar sesión</h2>
+      <p>Para realizar una reserva, debes iniciar sesión primero.</p>
+      <button id="login-redirect-btn">Iniciar Sesión</button>
+  </div>
 
-<!-- Popup para Reserva (solo clientes) -->
-<div id="reserva-popup" class="auth-popup">
-    <h2>Reserva</h2>
-    <p>Para realizar una reserva, haz clic en el siguiente botón para ir a la página de reservas.</p>
-    <a href="reserva.html" class="btn-reserva">Ir a Reserva</a>
-    <button class="close-btn" onclick="hideAllPopups()">Cerrar</button>
-</div>
+  <!-- Popup de Reserva (solo clientes) -->
+  <div id="reserva-popup" class="auth-popup">
+      <h2>Reserva</h2>
+      <p>Para realizar una reserva, haz clic en el siguiente botón para ir a la página de reservas.</p>
+      <a href="reserva.html" class="btn-reserva">Ir a Reserva</a>
+      <button class="close-btn" onclick="hideAllPopups()">Cerrar</button>
+  </div>
 
-<!-- Popup para Inventario (solo empleados) -->
-<div id="inventario-popup" class="auth-popup">
-    <h2>Inventario</h2>
-    <p>Como empleado, puedes acceder al inventario a través del siguiente botón.</p>
-    <a href="inventario.html" class="btn-inventario">Ir a Inventario</a>
-    <button class="close-btn" onclick="utils.hideAllPopups()">Cerrar</button>
-</div>
+  <!-- Popup de Inventario (solo empleados) -->
+  <div id="inventario-popup" class="auth-popup">
+      <h2>Inventario</h2>
+      <p>Como empleado, puedes acceder al inventario a través del siguiente botón.</p>
+      <a href="inventario.html" class="btn-inventario">Ir a Inventario</a>
+      <button class="close-btn" onclick="utils.hideAllPopups()">Cerrar</button>
+  </div>
 
-    <div id="login-popup" class="auth-popup">
-        <h2>Iniciar Sesión</h2>
-        <form id="login-form" action="PHP/login.php" method="POST">
-            <input type="text" name="username" placeholder="Usuario" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">Entrar</button>
-        </form>
-        <p>¿No tienes una cuenta? <a href="#" id="register-link">Regístrate aquí</a></p>
-        <p>¿Eres empleado? <a href="#" id="employee-login-link">Inicia sesión aquí</a></p>
-    </div>
+  <!-- Popup de inicio de sesión -->
+  <div id="login-popup" class="auth-popup">
+      <h2>Iniciar Sesión</h2>
+      <form id="login-form" action="PHP/login.php" method="POST">
+          <input type="text" name="username" placeholder="Usuario" required> <!-- Campo para nombre de usuario -->
+          <input type="password" name="password" placeholder="Contraseña" required> <!-- Campo para contraseña -->
+          <button type="submit">Entrar</button>
+      </form>
+      <p>¿No tienes una cuenta? <a href="#" id="register-link">Regístrate aquí</a></p> <!-- Enlace para registrarse -->
+      <p>¿Eres empleado? <a href="#" id="employee-login-link">Inicia sesión aquí</a></p> <!-- Enlace para empleados -->
+  </div>
 
-    <div id="register-popup" class="auth-popup">
-        <h2>Registro</h2>
-        <form id="register-form" action="PHP/register.php" method="POST">
-            <input type="text" name="username" placeholder="Usuario" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" required>
-            <button type="submit">Registrar</button>
-        </form>
-        <p>¿Ya tienes una cuenta? <a href="#" id="login-link">Inicia sesión aquí</a></p>
-    </div>
+  <!-- Popup para el registro de usuarios -->
+  <div id="register-popup" class="auth-popup">
+      <h2>Registro</h2>
+      <form id="register-form" action="PHP/register.php" method="POST">
+          <input type="text" name="username" placeholder="Usuario" required> <!-- Campo para el nombre de usuario -->
+          <input type="password" name="password" placeholder="Contraseña" required> <!-- Campo para contraseña -->
+          <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" required> <!-- Campo para confirmar la contraseña -->
+          <button type="submit">Registrar</button>
+      </form>
+      <p>¿Ya tienes una cuenta? <a href="#" id="login-link">Inicia sesión aquí</a></p> <!-- Enlace para iniciar sesión si ya tienen cuenta -->
+  </div>
 
-    <div id="employee-login-popup" class="auth-popup">
-        <h2>Iniciar Sesión Empleados</h2>
-        <form id="employee-login-form" action="PHP/login_employee.php" method="POST">
-            <input type="text" name="username" placeholder="Usuario" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">Entrar</button>
-        </form>
-        <p>¿Eres Cliente? <a href="#" id="client-login-link">Inicia sesión aquí</a></p>
-    </div>
+  <!-- Popup para el inicio de sesión de empleados -->
+  <div id="employee-login-popup" class="auth-popup">
+      <h2>Iniciar Sesión Empleados</h2>
+      <form id="employee-login-form" action="PHP/login_employee.php" method="POST">
+          <input type="text" name="username" placeholder="Usuario" required> <!-- Campo para el nombre de usuario del empleado -->
+          <input type="password" name="password" placeholder="Contraseña" required> <!-- Campo para la contraseña del empleado -->
+          <button type="submit">Entrar</button>
+      </form>
+      <p>¿Eres Cliente? <a href="#" id="client-login-link">Inicia sesión aquí</a></p> <!-- Enlace para clientes -->
+  </div>
+
 
     <div class="main-content">
         <header style="position: relative; text-align: center; color: white;">
