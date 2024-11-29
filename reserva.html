@@ -74,10 +74,17 @@
         </section>
     </main>
 
-     <!-- Botón de Cerrar Sesión -->
-     <form action="PHP/logout.php" method="POST">
-        <button type="submit">Cerrar sesión</button>
-    </form>
+   <!-- Botón de Cerrar Sesión -->
+   <form id="logout-form" action="#" method="POST">
+    <button type="submit">Cerrar sesión</button>
+</form>
+
+<script>
+    document.getElementById('logout-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Evitar el envío del formulario por defecto
+        logoutAndRedirect(); // Llamar a la función de cierre de sesión
+    });
+</script>
 
     <!-- Pie de página -->
     <footer>

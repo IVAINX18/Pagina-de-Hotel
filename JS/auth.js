@@ -29,7 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
     authBtn?.addEventListener('click', () => {
         checkSession().then(isAuthenticated => {
             if (isAuthenticated) {
-                window.location.href = 'PHP/logout.php';
+                // Llamar a logout.php para cerrar sesión
+                fetch('PHP/logout.php')
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result.success) {
+                            updateAuthButton(false);
+                            hideAllPopups();
+                            window.location.reload(); // Recargar la página para reflejar el cambio
+                        } else {
+                            alert('Error al cerrar sesión');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error al cerrar sesión:', error);
+                        alert('Error al cerrar sesión');
+                    });
             } else {
                 showPopup('login-popup');
             }
@@ -140,3 +155,28 @@ function hideAllPopups() {
     popups.forEach(popup => popup.style.display = 'none');
     if (overlay) overlay.style.display = 'none';
 }
+
+function logoutAndRedirect() {
+    console.log('Intentando cerrar sesión...'); // Agrega este log
+    fetch('PHP/logout.php', {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result); // Verifica la respuesta
+        if (result.success) {
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000); // Espera 1 segundo antes de redirigir
+        }
+        else {
+            alert('Error al cerrar sesión');
+        }
+    })
+    .catch(error => {
+        console.error('Error al cerrar sesión:', error);
+        alert('Error al cerrar sesión');
+    });
+}
+
+

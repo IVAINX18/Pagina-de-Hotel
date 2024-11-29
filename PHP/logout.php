@@ -1,8 +1,7 @@
 <?php
-session_start();  // Inicia la sesión
-session_destroy();  // Destruye todas las variables de sesión
-
-// Redirige al usuario a la página de inicio
-header('Location: ../index.html');
-exit;
+session_start();
+session_unset(); // Elimina todas las variables de sesión
+session_destroy(); // Destruye la sesión
+header('Content-Type: application/json');
+echo json_encode(['success' => true, 'message' => 'Sesión cerrada']);
 ?>
