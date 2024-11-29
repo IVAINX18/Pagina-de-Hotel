@@ -3,38 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva</title>
+    <title>Reserva - Hotel Cerrito</title>
     <link rel="stylesheet" href="CSS/main.css">
 </head>
 <body>
-    <h2>Hacer Reserva</h2>
-    <form action="PHP\reservas.php" method="POST">
-        <input type="text" name="nombre" placeholder="Nombre" required>
-        <input type="text" name="apellido" placeholder="Apellido" required>
-        <input type="tel" name="telefono" placeholder="Teléfono" required>
-        <select name="habitacion" required>
-            <option value="">Selecciona Habitación</option>
-            <option value="Habitación Sencilla">Habitación Sencilla</option>
-            <option value="Habitación Doble">Habitación Doble</option>
-            <option value="Suite">Suite</option>
-            <option value="Habitación Familiar">Habitación Familiar</option>
-            <option value="Penthouse">Penthouse</option>
-        </select>
-        <label>Fecha de Entrada:</label>
-        <input type="date" name="fecha_entrada" required>
-        <label>Fecha de Salida:</label>
-        <input type="date" name="fecha_salida" required>
-        <select name="precio" required>
-            <option value="">Selecciona Precio</option>
-            <option value="150000">Habitación Sencilla - $150,000</option>
-            <option value="250000">Habitación Doble - $250,000</option>
-            <option value="400000">Suite - $400,000</option>
-            <option value="500000">Habitación Familiar - $500,000</option>
-            <option value="600000">Penthouse - $600,000</option>
-            <option value="15000">Desayuno incluido - $15,000</option>
-        </select>
-        <button type="submit">Reservar</button>
-    </form>
-    <a href="logout.php">Cerrar Sesión</a>
+    <div class="container">
+        <h2>Hacer Reserva</h2>
+        <form id="reserva-form" action="PHP/reservas.php" method="POST">
+            <div class="form-group">
+                <input type="text" name="nombre" placeholder="Nombre" required pattern="[A-Za-zÁáÉéÍíÓóÚú\s]+" title="Solo se permiten letras">
+                <input type="text" name="apellido" placeholder="Apellido" required pattern="[A-Za-zÁáÉéÍíÓóÚú\s]+" title="Solo se permiten letras">
+                <input type="tel" name="telefono" placeholder="Teléfono" required pattern="[0-9]+" minlength="10" maxlength="10" title="Ingrese un número de teléfono válido">
+                
+                <select name="habitacion" required>
+                    <option value="">Selecciona Habitación</option>
+                    <option value="Habitación Sencilla">Habitación Sencilla</option>
+                    <option value="Habitación Doble">Habitación Doble</option>
+                    <option value="Suite">Suite</option>
+                    <option value="Habitación Familiar">Habitación Familiar</option>
+                    <option value="Penthouse">Penthouse</option>
+                </select>
+                
+                <label for="fecha_entrada">Fecha de Entrada:</label>
+                <input type="date" id="fecha_entrada" name="fecha_entrada" required>
+                
+                <label for="fecha_salida">Fecha de Salida:</label>
+                <input type="date" id="fecha_salida" name="fecha_salida" required>
+                
+                <select name="precio" required>
+                    <option value="">Selecciona Precio</option>
+                    <option value="150000">Habitación Sencilla - $150,000</option>
+                    <option value="250000">Habitación Doble - $250,000</option>
+                    <option value="400000">Suite - $400,000</option>
+                    <option value="500000">Habitación Familiar - $500,000</option>
+                    <option value="600000">Penthouse - $600,000</option>
+                    <option value="15000">Desayuno incluido - $15,000</option>
+                </select>
+                
+                <button type="submit">Reservar</button>
+            </div>
+        </form>
+        <a href="logout.php" class="logout-btn">Cerrar Sesión</a>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('reserva-form');
+        const fechaEntrada = document.getElementById('fecha_entrada');
+        const fechaSalida = document.getElementById('fecha_salida');
+
+        // Establecer fecha mínima de entrada a partir de hoy
+        const today = new Date().toISOString().split('T')[0];
+        fechaEntrada.min = today;
+
+        // Validar fechas
+        fechaEntrada.addEventListener('change', function() {
+            fechaSalida.min = this.value;
+        });
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Validaciones adicionales
+            const nombre = form.nombre.value.trim();
+            const apellido = form.apellido.value.trim();
+            const telefono = form.telefono.value.trim();
+            const habitacion = form.habitacion.value;
+            const fechaEntradaVal = form.fecha_entrada.value;
+            const fechaSalidaVal = form.fecha_salida.value;
+            const precio = form.precio.value;
+
+            // Validar que todos los campos estén llenos
+            if (!nombre || !apellido || !telefono || !habitacion || !fechaEntradaVal || !fechaSalidaVal || !precio) {
+                alert('Por favor, complete todos los campos.');
+                return;
+            }
+
+            // Crear FormData
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('PHP/reservas.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Reserva realizada con éxito');
+                    // Opcional: redirigir a una página de confirmación
+                    // window.location.href = 'confirmacion_reserva.php';
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Ocurrió un problema al procesar la reserva');
+            }
+        });
+    });
+    </script>
 </body>
 </html>

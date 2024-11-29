@@ -12,9 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch();
 
     if ($user && password_verify($password, $user['password'])) {
-        echo "Bienvenido, " . htmlspecialchars($username) . "!";
+        session_start();
+        $_SESSION['user'] = $username; // Almacenar usuario en sesión
+        echo json_encode(['success' => true]);
     } else {
-        echo "Usuario o contraseña incorrectos.";
+        echo json_encode(['success' => false, 'message' => 'Usuario o contraseña incorrectos.']);
     }
 }
 ?>
