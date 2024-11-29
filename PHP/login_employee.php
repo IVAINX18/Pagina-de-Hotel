@@ -27,8 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode([
             "success" => true,
             "message" => "Bienvenido, " . htmlspecialchars($username) . "!",
-            "redirect" => "HTML/inventario.html" // Ruta a redirigir en caso de éxito
+            "userType" => "empleado", // Agrega esta línea
+            "redirect" => "inventario.html"
         ]);
+        
     } else {
         echo json_encode([
             "success" => false,

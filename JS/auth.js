@@ -86,6 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Mostrar el popup de reserva si es cliente
                 if (result.userType === 'cliente') {
                     document.getElementById('reserva-popup').style.display = 'block';
+                } else if (result.userType === 'empleado') {
+                    document.getElementById('inventario-popup').style.display = 'block'; // Agregamos esto
                 }
             } else {
                 alert(result.message);

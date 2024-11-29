@@ -1,12 +1,14 @@
 <?php
 session_start();
-header('Content-Type: application/json');
+$response = ['authenticated' => false];
 
-if (isset($_SESSION['cliente'])) {
-    echo json_encode(["authenticated" => true, "userType" => 'cliente']);
-} elseif (isset($_SESSION['empleado'])) {
-    echo json_encode(["authenticated" => true, "userType" => 'empleado']);
-} else {
-    echo json_encode(["authenticated" => false]);
+if (isset($_SESSION['empleado'])) {
+    $response['authenticated'] = true;
+    $response['userType'] = 'empleado';
+} elseif (isset($_SESSION['cliente'])) {
+    $response['authenticated'] = true;
+    $response['userType'] = 'cliente';
 }
+
+echo json_encode($response);
 ?>
