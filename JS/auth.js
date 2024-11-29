@@ -51,6 +51,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Cerrar sesión automáticamente al cerrar la página
+window.addEventListener('beforeunload', () => {
+    fetch('PHP/logout.php', {
+        method: 'POST',
+        credentials: 'include' // Asegúrate de enviar cookies de sesión si las estás usando
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log('Sesión cerrada automáticamente:', result);
+    })
+    .catch(error => {
+        console.error('Error al cerrar sesión:', error);
+    });
+});
+
+
     // Update auth button based on session status
     function updateAuthButton(isAuthenticated) {
         if (authBtn) {
