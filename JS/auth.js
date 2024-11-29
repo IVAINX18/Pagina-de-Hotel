@@ -100,10 +100,11 @@ document.getElementById('login-employee-popup')?.querySelector('form')?.addEvent
         const result = await response.json(); // Espera la respuesta en formato JSON
 
         if (result.success) {
-            // Si el inicio de sesión es exitoso, redirige al usuario
-            window.location.href = 'employee_dashboard.php'; // Cambia a la página de destino para empleados
+            // Mostrar mensaje de bienvenida y redirigir
+            alert(result.message); // Muestra el mensaje de bienvenida
+            window.location.href = result.redirect; // Redirige al inventario
         } else {
-            // Si hay un error, muestra un mensaje
+            // Mostrar mensaje de error
             alert(result.message); // Muestra el mensaje de error
         }
     } catch (error) {
