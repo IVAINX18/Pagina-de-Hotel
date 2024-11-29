@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isAuthenticated = await utils.checkSession();
         
         if (isAuthenticated) {
-            window.location.href = 'reservas.html';
+            window.location.href = 'reserva.html';
         } else {
             utils.showPopup('alert-popup');
         }

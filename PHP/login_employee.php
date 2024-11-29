@@ -17,6 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Verificar si el empleado existe y si la contraseña coincide
     if ($empleado && $empleado['contraseña'] === $password) {
+        // Si el login es exitoso, guardar la sesión
+        session_start();
+        $_SESSION['empleado'] = [
+            'id' => $empleado['id'],
+            'usuario' => $empleado['usuario']
+        ];
+
         echo json_encode([
             "success" => true,
             "message" => "Bienvenido, " . htmlspecialchars($username) . "!",
@@ -29,4 +36,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
     }
 }
-?>
+

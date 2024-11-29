@@ -16,18 +16,6 @@ const utils = {
         if (overlay) overlay.style.display = 'none';
     },
 
-    validateForm: function(formData) {
-        const requiredFields = ['nombre', 'apellido', 'telefono', 'habitacion', 'fecha_entrada', 'fecha_salida', 'precio'];
-        return requiredFields.every(field => formData.get(field));
-    },
-
-    formatPrice: function(price) {
-        return new Intl.NumberFormat('es-CO', {
-            style: 'currency',
-            currency: 'COP'
-        }).format(price);
-    },
-
     checkSession: async function() {
         try {
             const response = await fetch('php/check_session.php');
@@ -39,6 +27,3 @@ const utils = {
         }
     }
 };
-
-// Event Listeners
-document.getElementById('popup-overlay')?.addEventListener('click', () => utils.hideAllPopups());

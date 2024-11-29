@@ -26,8 +26,8 @@ try {
     $stmt->bindParam(':tipo_habitacion', $tipo_habitacion);
     $stmt->bindParam(':comentarios', $comentarios);
 
-    // Ejecutar la consulta
-    if ($stmt->execute()) {
+       // Ejecutar la consulta
+       if ($stmt->execute()) {
         // Respuesta de éxito
         $response['success'] = true;
         $response['message'] = 'Reserva realizada con éxito.';

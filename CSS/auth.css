@@ -37,7 +37,9 @@
     flex-direction: column;
     gap: 15px;
 }
-
+.auth-popup {
+    display: none; 
+}
 .auth-popup input {
     padding: 12px;
     border: 1px solid #ddd;
