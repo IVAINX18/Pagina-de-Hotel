@@ -30,3 +30,16 @@ const utils = {
         }
     }
 };
+
+// Asegúrate de que el overlay cierre los popups al hacer clic
+document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('popup-overlay');
+    
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+            utils.hideAllPopups(); // Llama a la función para cerrar los popups
+        });
+    } else {
+        console.error('El elemento con id "popup-overlay" no existe.');
+    }
+});
