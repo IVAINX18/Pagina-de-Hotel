@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             // Envía los datos del formulario al servidor utilizando fetch
-            const response = await fetch('PHP/invent_handler.php', {
+            const response = await fetch('PHP/HANDLERS/invent_handler.php', {
                 method: 'POST', // Método HTTP que se usará para enviar los datos
                 body: formData // Los datos del formulario se envían en el cuerpo de la solicitud
             });
