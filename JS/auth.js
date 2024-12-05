@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkSession().then(isAuthenticated => {
             if (isAuthenticated) {
                 // Llamar a logout.php para cerrar sesión
-                fetch('PHP/LOGIN-LOG_OUT/logout.php')
+                fetch('PHP/logout.php')
                     .then(response => response.json())
                     .then(result => {
                         if (result.success) {
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cerrar sesión automáticamente al cerrar la página
 window.addEventListener('beforeunload', () => {
-    fetch('PHP/LOGIN-LOG_OUT/logout.php', {
+    fetch('PHP/logout.php', {
         method: 'POST',
         credentials: 'include' // Asegúrate de enviar cookies de sesión si las estás usando
     })
@@ -115,9 +115,9 @@ window.addEventListener('beforeunload', () => {
     };
 
     // Add form submit event listeners
-    loginForm?.addEventListener('submit', e => handleFormSubmit(e, 'PHP/LOGIN-LOG_OUT/login.php'));
+    loginForm?.addEventListener('submit', e => handleFormSubmit(e, 'PHP/login.php'));
     registerForm?.addEventListener('submit', e => handleFormSubmit(e, 'php/register.php'));
-    employeeLoginForm?.addEventListener('submit', e => handleFormSubmit(e, 'PHP/LOGIN-LOG_OUT/login_employee.php'));
+    employeeLoginForm?.addEventListener('submit', e => handleFormSubmit(e, 'PHP/login_employee.php'));
 
     // Add navigation event listeners
     registerLink?.addEventListener('click', e => {
@@ -176,7 +176,7 @@ function hideAllPopups() {
 
 function logoutAndRedirect() {
     console.log('Intentando cerrar sesión...'); // Agrega este log
-    fetch('PHP/LOGIN-LOG_OUT/logout.php', {
+    fetch('PHP/logout.php', {
         method: 'POST'
     })
     .then(response => response.json())

@@ -45,7 +45,7 @@
         <section id="inventario">
             <h2>Agregar al Inventario</h2>
             <p>Por favor, completa el siguiente formulario para agregar un nuevo elemento al inventario.</p>
-            <form id="inventario-form" action="PHP/HANDLERS/invent_handler.php" method="POST">
+            <form id="inventario-form" action="PHP/invent_handler.php" method="POST">
                 <label for="nombre">Nombre del Elemento:</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Nombre del Elemento" required>
                 
@@ -72,6 +72,8 @@
     <form id="logout-form" action="#" method="POST">
         <button type="submit">Cerrar sesión</button>
     </form>
+
+    <a href="gestion-reservas.html" class="btn btn-primary">Gestionar Reservaciones</a>
 
     <script>
         document.getElementById('logout-form').addEventListener('submit', function(e) {

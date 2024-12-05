@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             // Enviar los datos al servidor
-            const response = await fetch('PHP/HANDLERS/reserva_handler.php', {
+            const response = await fetch('PHP/reserva_handler.php', {
                 method: 'POST',
                 body: formData
             });
