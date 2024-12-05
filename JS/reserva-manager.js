@@ -1,22 +1,29 @@
+// Espera a que el contenido del documento esté completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
+    // Carga las reservas al iniciar
     cargarReservas();
 
-    // Función para cargar todas las reservas
+    // Función para cargar todas las reservas desde el servidor
     async function cargarReservas() {
-        const response = await fetch('PHP/HANDLERS/reserva_manager.php', {
+        // Realiza una solicitud POST al archivo PHP para obtener la lista de reservas
+        const response = await fetch('PHP/reserva_manager.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: 'accion=listar',
+            body: 'accion=listar', // Indica la acción a realizar
         });
+        // Convierte la respuesta en formato JSON
         const reservas = await response.json();
+        // Muestra las reservas en la tabla
         mostrarReservas(reservas);
     }
 
-    // Función para mostrar reservas en la tabla
+    // Función para mostrar reservas en la tabla HTML
     function mostrarReservas(reservas) {
+        // Obtiene el cuerpo de la tabla donde se mostrarán las reservas
         const tabla = document.getElementById('tabla-reservas').querySelector('tbody');
-        tabla.innerHTML = ''; // Limpiar contenido previo
+        tabla.innerHTML = ''; // Limpia el contenido previo de la tabla
 
+        // Itera sobre cada reserva y crea una fila en la tabla
         reservas.forEach(reserva => {
             const fila = document.createElement('tr');
             fila.innerHTML = `
@@ -32,13 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="btn-cancelar" data-id="${reserva.id}">Cancelar</button>
                 </td>
             `;
+            // Añade la fila a la tabla
             tabla.appendChild(fila);
         });
 
-        // Añadir eventos a los botones
+        // Añade eventos a los botones de actualizar
         document.querySelectorAll('.btn-actualizar').forEach(btn => {
             btn.addEventListener('click', actualizarReserva);
         });
+        // Añade eventos a los botones de cancelar
         document.querySelectorAll('.btn-cancelar').forEach(btn => {
             btn.addEventListener('click', cancelarReserva);
         });
@@ -46,24 +55,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para actualizar una reserva
     async function actualizarReserva(event) {
-        const id = event.target.dataset.id;
+        const id = event.target.dataset.id; // Obtiene el ID de la reserva desde el botón
         // Aquí podrías mostrar un formulario de actualización con los datos existentes
         alert(`Actualizar reserva con ID: ${id}`);
     }
 
     // Función para cancelar una reserva
     async function cancelarReserva(event) {
-        const id = event.target.dataset.id;
+        const id = event.target.dataset.id; // Obtiene el ID de la reserva desde el botón
+        // Confirma si el usuario realmente desea cancelar la reserva
         const confirmacion = confirm('¿Estás seguro de que deseas cancelar esta reservación?');
         if (confirmacion) {
-            const response = await fetch('PHP/HANDLERS/reserva_manager.php', {
+            // Realiza una solicitud POST al archivo PHP para cancelar la reserva
+            const response = await fetch('PHP/reserva_manager.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: `accion=cancelar&id=${id}`,
+                body: `accion=cancelar&id=${id}`, // Indica la acción y el ID de la reserva
             });
+            // Convierte la respuesta en formato JSON
             const result = await response.json();
+            // Muestra un mensaje con el resultado de la cancelación
             alert(result.message);
-            cargarReservas(); // Recargar la lista
+            // Recarga la lista de reservas
+            cargarReservas();
         }
     }
 });
