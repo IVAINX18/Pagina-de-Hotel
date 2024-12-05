@@ -7,6 +7,7 @@ body {
     color: #fff;
     line-height: 1.6;
     overflow-x: hidden;
+    text-align: left;
 }
 
 /* Main Content */
@@ -14,4 +15,25 @@ body {
     transition: 0.3s ease;
     position: absolute;
     left: 0;
+    align-content: left;
+}
+
+/* Forzar alineación a la izquierda para "Bienvenidos" */
+#bienvenidos {
+    text-align: left; /* Asegura que todo el contenido de la sección esté alineado a la izquierda */
+}
+
+#bienvenidos p {
+    margin: 10px 0;
+    text-align: left; /* Asegura que los párrafos no hereden centrado */
+}
+
+/* Forzar alineación a la izquierda para "Contacto" */
+#contacto {
+    text-align: left; /* Asegura que todo el contenido de la sección esté alineado a la izquierda */
+}
+
+#contacto p,
+#contacto form {
+    text-align: left; /* Asegura que los elementos de formulario también estén alineados */
 }

@@ -2,6 +2,7 @@
 section {
     padding: 40px 20px;
     margin: 20px 0;
+    text-align: left;
 }
 
 section h2 {
@@ -15,11 +16,13 @@ section h2 {
 section p,
 section ul {
     margin: 10px 0;
+    text-align: left;
 }
 
 section ul {
     list-style-type: circle;
     margin-left: 20px;
+    text-align: left;
 }
 
 /* Footer */
