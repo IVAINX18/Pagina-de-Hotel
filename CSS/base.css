@@ -12,6 +12,6 @@ body {
 /* Main Content */
 .main-content {
     transition: 0.3s ease;
-    position: relative;
+    position: absolute;
     left: 0;
 }
