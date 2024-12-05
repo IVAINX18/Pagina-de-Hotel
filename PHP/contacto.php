@@ -3,7 +3,7 @@
 $servidor = "localhost"; // Cambiar si el servidor no está en localhost
 $usuario = "root";       // Usuario de la base de datos
 $password = "";          // Contraseña del usuario
-$baseDatos = "mi_base_datos"; // Cambia "mi_base_datos" por el nombre de tu base
+$baseDatos = "hotel_cerrito"; // Cambia "mi_base_datos" por el nombre de tu base
 
 // Conectar a la base de datos
 $conn = new mysqli($servidor, $usuario, $password, $baseDatos);

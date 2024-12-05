@@ -1,7 +1,7 @@
 <?php
 // Definimos las credenciales para la conexión a la base de datos
 $host = 'localhost'; // El servidor de la base de datos
-$dbname = 'mi_base_datos'; // El nombre de la base de datos a la que nos queremos conectar
+$dbname = 'hotel_cerrito'; // El nombre de la base de datos a la que nos queremos conectar
 $user = 'root'; // El usuario de la base de datos
 $password = ''; // La contraseña del usuario de la base de datos (vacía en este caso)
 

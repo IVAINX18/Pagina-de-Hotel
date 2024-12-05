@@ -115,9 +115,9 @@ window.addEventListener('beforeunload', () => {
     };
 
     // Add form submit event listeners
-    loginForm?.addEventListener('submit', e => handleFormSubmit(e, 'PHP/login.php'));
+    loginForm?.addEventListener('submit', e => handleFormSubmit(e, 'php/login.php'));
     registerForm?.addEventListener('submit', e => handleFormSubmit(e, 'php/register.php'));
-    employeeLoginForm?.addEventListener('submit', e => handleFormSubmit(e, 'PHP/login_employee.php'));
+    employeeLoginForm?.addEventListener('submit', e => handleFormSubmit(e, 'php/login_employee.php'));
 
     // Add navigation event listeners
     registerLink?.addEventListener('click', e => {
