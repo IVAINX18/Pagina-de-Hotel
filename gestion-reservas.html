@@ -65,6 +65,36 @@
                 </tbody>
             </table>
         </section>
+
+
+            <div id="formulario-actualizar" style="display: none;">
+                <h3>Actualizar Reserva</h3>
+                <form id="form-actualizar-reserva">
+                    <input type="hidden" id="id-reserva" name="id"> <!-- Campo oculto para el ID -->
+            
+                    <!-- Campos no editables -->
+                    <p><strong>Nombre:</strong> <span id="nombre-mostrado"></span></p>
+                    <p><strong>Email:</strong> <span id="email-mostrado"></span></p>
+            
+                    <!-- Campos editables -->
+                    <label for="fecha_entrada">Fecha de Entrada:</label>
+                    <input type="date" id="fecha_entrada" name="fecha_entrada" required>
+                    <label for="fecha_salida">Fecha de Salida:</label>
+                    <input type="date" id="fecha_salida" name="fecha_salida" required>
+                    <label for="tipo_habitacion">Tipo de Habitación:</label>
+                    <select id="tipo_habitacion" name="tipo_habitacion" required>
+                        <option value="Sencilla">Sencilla</option>
+                        <option value="Doble">Doble</option>
+                        <option value="Suite">Suite</option>
+                        <option value="familiar">Familiar</option>
+                        <option value="penthouse">Penthouse</option>
+                    </select>
+            
+                    <button type="submit">Guardar Cambios</button>
+                    <button type="button" id="cancelar-actualizacion">Cancelar</button>
+                </form>
+            </div>
+
     </main>
 
         <!-- Botón de Cerrar Sesión -->
