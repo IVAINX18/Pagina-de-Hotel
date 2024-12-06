@@ -70,13 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('form-actualizar-reserva').addEventListener('submit', async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-
+        formData.append('accion', 'actualizar'); // Add this line to specify the action
+    
         try {
             const response = await fetch('PHP/reserva_manager.php', {
                 method: 'POST',
                 body: new URLSearchParams(formData)
             });
-
+    
             const result = await response.json();
             if (result.success) {
                 alert(result.message);
