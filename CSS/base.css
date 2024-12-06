@@ -13,7 +13,7 @@ body {
 /* Main Content */
 .main-content {
     transition: 0.3s ease;
-    position: absolute;
+    position: relative;
     left: 0;
     align-content: left;
 }

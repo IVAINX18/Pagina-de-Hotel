@@ -15,6 +15,7 @@
 <body>
     <!-- Sidebar -->
     <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
+    
     <div class="sidebar">
         <div class="sidebar-header">
             <img src="GALERIA/logo.jpg" alt="Logo" class="sidebar-logo">
@@ -27,11 +28,14 @@
                 <li><a href="index.html#precios"><i class="fas fa-tag"></i> Precios</a></li>
                 <li><a href="index.html#contacto"><i class="fas fa-phone"></i> Contacto</a></li>
                 <li><a href="inventario.html" class="active"><i class="fas fa-box"></i> Inventario</a></li>
+                <li><a href="gestion-reservas.html" class="active"><i class="fa-solid fa-calendar"></i> Gestión de Reservas</a></li>
             </ul>
         </nav>
     </div>
 
-    <!-- Banner -->
+    <!-- Contenido Principal -->
+    <div class="main-content"> 
+        <!-- Banner -->
     <header style="position: relative; text-align: center; color: white;">
         <label for="sidebar-toggle" class="sidebar-toggle">
             <i class="fas fa-bars"></i>
@@ -39,56 +43,55 @@
         <img src="GALERIA/logo.jpg" alt="Logo" class="logo">
         <h1 class="hotel-title">Inventario</h1>
     </header>
-
-    <!-- Contenido Principal -->
-    <main>
-        <section id="inventario">
-            <h2>Agregar al Inventario</h2>
-            <p>Por favor, completa el siguiente formulario para agregar un nuevo elemento al inventario.</p>
-            <form id="inventario-form" action="PHP/invent_handler.php" method="POST">
-                <label for="nombre">Nombre del Elemento:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre del Elemento" required>
-                
-                <label for="categoria">Categoría:</label>
-                <select id="categoria" name="categoria" required>
-                    <option value="utileria">Utilería</option>
-                    <option value="comida">Comida</option>
-                    <option value="uniformes">Uniformes</option>
-                    <option value="implementos de aseo">Implementos de Aseo</option>
-                </select>
-
-                <label for="cantidad">Cantidad:</label>
-                <input type="number" id="cantidad" name="cantidad" required>
-
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" placeholder="Descripción del elemento"></textarea>
-                
-                <button type="submit">Agregar al Inventario</button>
-            </form>
-        </section>
-    </main>
-
-    <!-- Botón de Cerrar Sesión -->
-    <form id="logout-form" action="#" method="POST">
-        <button type="submit">Cerrar sesión</button>
-    </form>
-    <p></p>
-    <form id="gestion-reservas-form" action="gestion-reservas.html" method="GET">
-        <button type="submit" class="btn btn-primary">Gestionar Reservaciones</button>
-    </form>
+        <main>
+            <section id="inventario">
+                <h2>Agregar al Inventario</h2>
+                <p>Por favor, completa el siguiente formulario para agregar un nuevo elemento al inventario.</p>
+                <form id="inventario-form" action="PHP/invent_handler.php" method="POST">
+                    <label for="nombre">Nombre del Elemento:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre del Elemento" required>
+                    
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="utileria">Utilería</option>
+                        <option value="comida">Comida</option>
+                        <option value="uniformes">Uniformes</option>
+                        <option value="implementos de aseo">Implementos de Aseo</option>
+                    </select>
     
-
-    <script>
-        document.getElementById('logout-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // Evitar el envío del formulario por defecto
-            logoutAndRedirect(); // Llamar a la función de cierre de sesión
-        });
-    </script>
-
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2024 Hotel Cerrito. Todos los derechos reservados.</p>
-        <p>Síguenos en nuestras redes sociales: Facebook | Instagram | Twitter</p>
-    </footer>
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" id="cantidad" name="cantidad" required>
+    
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" placeholder="Descripción del elemento"></textarea>
+                    
+                    <button type="submit">Agregar al Inventario</button>
+                </form>
+            </section>
+        </main>
+    
+        <!-- Botón de Cerrar Sesión -->
+        <form id="logout-form" action="#" method="POST">
+            <button type="submit">Cerrar sesión</button>
+        </form>
+        <p></p>
+        <form id="gestion-reservas-form" action="gestion-reservas.html" method="GET">
+            <button type="submit" class="btn btn-primary">Gestionar Reservaciones</button>
+        </form>
+        
+    
+        <script>
+            document.getElementById('logout-form').addEventListener('submit', function(e) {
+                e.preventDefault(); // Evitar el envío del formulario por defecto
+                logoutAndRedirect(); // Llamar a la función de cierre de sesión
+            });
+        </script>
+    
+        <!-- Pie de página -->
+        <footer>
+            <p>&copy; 2024 Hotel Cerrito. Todos los derechos reservados.</p>
+            <p>Síguenos en nuestras redes sociales: Facebook | Instagram | Twitter</p>
+        </footer>
+    </div>
 </body>
 </html>

@@ -42,19 +42,27 @@
       <button id="login-redirect-btn">Iniciar Sesión</button>
   </div>
 
-  <!-- Popup de Reserva (solo clientes) -->
-  <div id="reserva-popup" class="auth-popup">
-      <h2>Reserva</h2>
-      <p>Para realizar una reserva, haz clic en el siguiente botón para ir a la página de reservas.</p>
-      <a href="reserva.html" class="btn-reserva">Ir a Reserva</a>
-      <button class="close-btn" onclick="hideAllPopups()">Cerrar</button>
-  </div>
+<!-- Popup de Reserva (solo clientes) -->
+<div id="reserva-popup" class="auth-popup">
+    <h2>RESERVA</h2>
+    <p>Para realizar una reserva, haz clic en el siguiente botón para ir a la página de reservas.</p>
+    <form id="reserva-form" action="reserva.html" method="GET">
+        <button type="submit" class="btn btn-primary">Ir a Reserva</button>
+    </form>
+    <button class="btn btn-secondary" onclick="hideAllPopups()">Cerrar</button>
+</div>
 
   <!-- Popup de Inventario (solo empleados) -->
   <div id="inventario-popup" class="auth-popup">
-      <h2>Inventario</h2>
-      <p>Como empleado, puedes acceder al inventario a través del siguiente botón.</p>
-      <a href="inventario.html" class="btn-inventario">Ir a Inventario</a>
+      <h2>INVENTARIO</h2>
+      <p>Como empleado, puedes acceder al inventario o gestionar la reservaciones de los clientes a través del siguiente botón.</p>
+      <form id = "inventario-form" action="inventario.html" method="GET">
+        <button type="submit" class="btn btn-primary">Ir a Inventario</button>
+      </form>
+      <p></p>
+      <form id = "inventario-form" action="gestion-reservas.html" method="GET">
+        <button type="submit" class="btn btn-primary">Ir a Gestion de Reservas</button>
+      </form>
       <button class="close-btn" onclick="utils.hideAllPopups()">Cerrar</button>
   </div>
 
@@ -117,7 +125,7 @@
         </header>
         
         <!-- Contenido Principal -->
-        <main style="text-align: left;" >
+        <main>
             <!-- Bienvenidos -->
             <section id="bienvenidos">
                 <h2>Bienvenidos a Hotel Cerrito</h2>
@@ -221,8 +229,7 @@
                     <button type="submit">Enviar</button>
                 </form>                
             </section>
-            
-        </main>
+            </main>
         
         <!-- Pie de pagina -->
         

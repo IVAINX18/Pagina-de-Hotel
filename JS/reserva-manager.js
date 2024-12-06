@@ -5,17 +5,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para cargar todas las reservas desde el servidor
     async function cargarReservas() {
-        // Realiza una solicitud POST al archivo PHP para obtener la lista de reservas
-        const response = await fetch('PHP/reserva_manager.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: 'accion=listar', // Indica la acción a realizar
-        });
-        // Convierte la respuesta en formato JSON
-        const reservas = await response.json();
-        // Muestra las reservas en la tabla
-        mostrarReservas(reservas);
+        try {
+            const response = await fetch('PHP/reserva_manager.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'accion=listar'
+            });
+    
+            if (!response.ok) {
+                throw new Error('Error en la conexión con el servidor');
+            }
+    
+            const reservas = await response.json();
+    
+            if (reservas.success) {
+                mostrarReservas(reservas.data);
+            } else {
+                console.error('Error en el servidor:', reservas.message);
+                alert('No se pudieron cargar las reservas: ' + reservas.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error al cargar reservas: ' + error.message);
+        }
     }
+    
 
     // Función para mostrar reservas en la tabla HTML
     function mostrarReservas(reservas) {
