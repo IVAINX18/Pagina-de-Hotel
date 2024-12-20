@@ -1,0 +1,13 @@
+/* Importa todos los módulos de CSS necesarios para el sitio web */
+@import 'base.css'; /* Estilos base generales para el sitio */
+@import 'sidebar.css'; /* Estilos específicos para la barra lateral */
+@import 'auth.css'; /* Estilos para las páginas de autenticación (login, registro) */
+@import 'header.css'; /* Estilos para el encabezado del sitio */
+@import 'sections.css'; /* Estilos para las diferentes secciones del contenido */
+@import 'gallery.css'; /* Estilos específicos para la galería de imágenes */
+@import 'contact-form.css'; /* Estilos para formularios utilizados en el sitio */
+@import 'tables.css'; /* Estilos para tablas de datos */
+@import 'responsive.css'; /* Estilos para la adaptabilidad en dispositivos móviles */
+@import 'reserv-form.css'; /* Estilos para formularios de reserva */
+@import 'invent-form.css'; /* Estilos para formularios de inventario */
+@import 'chatbot.css'; /* Estilos para la interfaz de chatbot */

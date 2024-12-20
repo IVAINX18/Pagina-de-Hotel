@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Reservas - Hotel Cerrito</title>
+    <link rel="stylesheet" href="CSS/main.css">
+    <script src="JS/reserva-manager.js" defer></script>
+    <script src="JS/auth.js" defer></script>
+    <script src="JS/navigation.js" defer></script>
+    <script src="JS/utils.js" defer></script>
+    <script src="JS/invent-form.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+        <!-- Sidebar -->
+        <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="GALERIA/logo.jpg" alt="Logo" class="sidebar-logo">
+                <h3>Hotel Cerrito</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="index.html#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+                    <li><a href="index.html#precios"><i class="fas fa-tag"></i> Precios</a></li>
+                    <li><a href="index.html#contacto"><i class="fas fa-phone"></i> Contacto</a></li>
+                    <li><a href="inventario.html" class="active"><i class="fas fa-box"></i> Inventario</a></li>
+                    <li><a href="gestion-reservas.html" class="active"><i class="fa-solid fa-calendar"></i> Gestión de Reservas</a></li>
+                </ul>
+            </nav>
+        </div>
+    
+        <div class="main-content">
+             <!-- Banner -->
+    <header style="position: relative; text-align: center; color: white;">
+        <label for="sidebar-toggle" class="sidebar-toggle">
+            <i class="fas fa-bars"></i>
+        </label>
+        <img src="GALERIA/logo.jpg" alt="Logo" class="logo">
+        <h1 class="hotel-title">Gestion de Reservas</h1>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <section id="reservas">
+            <h2>Listado de Reservas</h2>
+            <table id="tabla-reservas">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Entrada</th>
+                        <th>Salida</th>
+                        <th>Habitación</th>
+                        <th>Comentarios</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Se llenará dinámicamente con JavaScript -->
+                </tbody>
+            </table>
+        </section>
+
+
+            <div id="formulario-actualizar" style="display: none;">
+                <h3>Actualizar Reserva</h3>
+                <form id="form-actualizar-reserva">
+                    <input type="hidden" id="id-reserva" name="id"> <!-- Campo oculto para el ID -->
+            
+                    <!-- Campos no editables -->
+                    <p><strong>Nombre:</strong> <span id="nombre-mostrado"></span></p>
+                    <p><strong>Email:</strong> <span id="email-mostrado"></span></p>
+            
+                    <!-- Campos editables -->
+                    <label for="fecha_entrada">Fecha de Entrada:</label>
+                    <input type="date" id="fecha_entrada" name="fecha_entrada" required>
+                    <label for="fecha_salida">Fecha de Salida:</label>
+                    <input type="date" id="fecha_salida" name="fecha_salida" required>
+                    <label for="tipo_habitacion">Tipo de Habitación:</label>
+                    <select id="tipo_habitacion" name="tipo_habitacion" required>
+                        <option value="Sencilla">Sencilla</option>
+                        <option value="Doble">Doble</option>
+                        <option value="Suite">Suite</option>
+                        <option value="familiar">Familiar</option>
+                        <option value="penthouse">Penthouse</option>
+                    </select>
+            
+                    <button type="submit">Guardar Cambios</button>
+                    <button type="button" id="cancelar-actualizacion">Cancelar</button>
+                </form>
+            </div>
+
+    </main>
+
+        <!-- Botón de Cerrar Sesión -->
+        <form id="logout-form" action="#" method="POST">
+            <button type="submit">Cerrar sesión</button>
+        </form>
+
+        <script>
+            document.getElementById('logout-form').addEventListener('submit', function(e) {
+                e.preventDefault(); // Evitar el envío del formulario por defecto
+                logoutAndRedirect(); // Llamar a la función de cierre de sesión
+            });
+        </script>
+    
+        <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Hotel Cerrito. Todos los derechos reservados.</p>
+        <p>Síguenos en nuestras redes sociales: Facebook | Instagram | Twitter</p>
+    </footer>
+        </div>
+</body>
+</html>

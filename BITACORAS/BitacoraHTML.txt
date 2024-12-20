@@ -1,0 +1,75 @@
+Documentación de index.html
+28/11/2024
+
+Descripción General
+El archivo index.html es la página principal del sitio web del "Hotel Cerrito". Esta página está estructurada en HTML5 y utiliza CSS y JavaScript para el diseño y la funcionalidad. El objetivo principal es proporcionar información sobre el hotel, sus servicios, precios y contacto, así como permitir a los usuarios iniciar sesión y registrarse.
+
+----
+
+Estructura del Documento
+1. Encabezado (head):
+   - Define la codificación de caracteres y el título de la página.
+   - Incluye enlaces a hojas de estilo CSS y scripts JavaScript.
+   - Carga un icono de Font Awesome para iconos en la interfaz.
+
+2. Cuerpo (body):
+   - Contiene la estructura principal de la página, que incluye:
+     - Un sidebar de navegación.
+     - Ventanas emergentes para autenticación.
+     - Contenido principal.
+     - Un pie de página.
+
+----
+
+Funcionalidades Clave
+- Sidebar de Navegación: Permite a los usuarios navegar entre diferentes secciones del sitio, como Inicio, Servicios, Precios y Contacto.
+- Ventanas Emergentes: Incluye formularios para iniciar sesión y registrarse, controlados por JavaScript.
+- Secciones de Contenido: Cada sección proporciona información relevante sobre el hotel, incluyendo descripciones, servicios ofrecidos, galería de imágenes, precios y detalles de contacto.
+- Formulario de Contacto: Permite a los usuarios enviar mensajes al hotel.
+
+----
+
+Bitácora de Cambios
+  - Estructura básica de HTML5.
+  - Inclusión de secciones para navegación, contenido y pie de página.
+  - Implementación de formularios de inicio de sesión y registro.
+
+----
+
+Explicación de Líneas de Código Cruciales
+
+1. Definición del Documento
+   <!DOCTYPE html>
+   <html lang="es">
+   Define el tipo de documento como HTML5 y establece el idioma de la página como español.
+
+2. Codificación de Caracteres
+   <meta charset="UTF-8">
+   Establece la codificación de caracteres a UTF-8, permitiendo la correcta visualización de caracteres especiales.
+
+3. Enlace a Estilos CSS
+   <link rel="stylesheet" href="CSS/main.css">
+   Enlaza el archivo CSS que contiene los estilos para la página, permitiendo personalizar su apariencia.
+
+4. Inclusión de Scripts JavaScript
+   <script src="JS/auth.js" defer></script>
+   <script src="JS/navigation.js" defer></script>
+   Incluye scripts JavaScript que manejan la autenticación y la navegación. El atributo defer asegura que los scripts se ejecuten después de que el documento se haya cargado.
+
+5. Control del Sidebar
+   <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
+   Este checkbox controla la visibilidad del sidebar mediante CSS, permitiendo que los usuarios lo oculten o muestren.
+
+6. Ventana Emergente de Inicio de Sesión
+   <div id="login-popup" class="auth-popup" style="display: none;">
+   <form id="login-form" action="PHP\login.php" method="POST">
+   Define una ventana emergente para el inicio de sesión que está oculta por defecto. El formulario envía datos a login.php mediante el método POST.
+
+7. Formulario de Contacto
+   <section id="contacto">
+   <form id="contact-form">
+   Sección de contacto que incluye un formulario para que los usuarios envíen mensajes. Este formulario puede ser manejado posteriormente con JavaScript para mejorar la experiencia del usuario.
+
+8. Pie de Página
+   <footer>
+   Define el pie de página de la página web, que incluye derechos de autor y enlaces a redes sociales.

@@ -1,0 +1,44 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hotel-title {
+        font-size: 2.5rem;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .gallery-item img {
+        height: 200px;
+    }
+
+    .sidebar-checkbox:checked ~ .main-content {
+        padding-left: 0;
+        transform: translateX(280px);
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        left: -100%;
+    }
+
+    .sidebar-checkbox:checked ~ .main-content {
+        transform: translateX(100%);
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .gallery {
+        padding: 15px;
+    }
+
+    .gallery-item {
+        padding: 15px;
+    }
+}

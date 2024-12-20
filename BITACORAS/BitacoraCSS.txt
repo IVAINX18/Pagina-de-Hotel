@@ -1,0 +1,173 @@
+Bitácora y Documentación del Código CSS del Proyecto "Hotel Cerrito"
+28/11/2024
+
+Descripción General
+El archivo CSS del proyecto "Hotel Cerrito" define la apariencia visual del sitio web. Se implementan estilos para el cuerpo de la página, la navegación, el sidebar, las secciones de contenido, tablas, formularios y elementos interactivos. El objetivo principal es ofrecer una experiencia de usuario atractiva y coherente, adaptándose a diferentes dispositivos.
+
+----
+
+Estructura del Documento
+1. Estilo General (base.css):
+   - Configuración de tipografía, márgenes y relleno para el cuerpo.
+   - Fondo negro con texto blanco y un interlineado estándar.
+   - Desactivación del desplazamiento horizontal.
+
+2. Sidebar (sidebar.css):
+   - Definición del sidebar con un diseño que permite mostrar y ocultar mediante un checkbox.
+   - Estilos para el encabezado y la navegación del sidebar.
+
+3. Encabezado Principal (header.css):
+   - Estilo del encabezado principal con fondo verde y tipografía destacada.
+
+4. Navegación Principal (header.css):
+   - Diseño de la lista horizontal de navegación con enlaces estilizados.
+
+5. Secciones (sections.css):
+   - Espaciado y estilos para encabezados, texto y listas en diferentes secciones, incluyendo el pie de página con fondo gris oscuro y texto claro.
+
+6. Tablas (tables.css):
+   - Estilos para tablas que incluyen bordes, espaciado y colores alternativos para filas, mejorando la legibilidad y la interacción del usuario.
+
+7. Formularios (forms.css):
+   - Estilos para formularios de contacto, asegurando que los campos de entrada y botones sean visualmente atractivos y fáciles de usar.
+
+8. Galería (gallery.css):
+   - Disposición de elementos en una cuadrícula con estilos responsivos, optimizando la visualización en diferentes tamaños de pantalla.
+
+9. Diseño Responsivo (responsive.css):
+   - Ajustes mediante media queries para mejorar la visualización en dispositivos móviles, garantizando que todos los elementos se adapten adecuadamente.
+
+10. Interactividad y Transiciones (auth.css y main.css):
+    - Implementación de transiciones suaves para botones y otros elementos interactivos, mejorando la experiencia del usuario.
+
+----
+
+Bitácora de Cambios
+- Se añadieron estilos para gestionar la apariencia del botón de "Iniciar sesión", la ventana emergente y el fondo oscuro (overlay).
+- Se implementaron estilos específicos para la nueva sección de precios y el formulario de contacto.
+- Se mejoraron los estilos de las tablas para una mejor presentación de datos.
+
+----
+
+Explicación de Líneas de Código Cruciales
+
+1. Estilo del Cuerpo (base.css)
+   body {
+       font-family: Arial, sans-serif;
+       margin: 0;
+       padding: 0;
+       background-color: black;
+       color: #fff;
+       line-height: 1.6;
+       overflow-x: hidden;
+   }
+   Define el estilo base del cuerpo de la página, estableciendo la tipografía y colores de fondo y texto.
+
+2. Sidebar (sidebar.css)
+   #sidebar {
+       position: fixed;
+       left: -280px;
+       width: 280px;
+       transition: left 0.3s;
+       background-color: #1a472a;
+       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+   }
+   Define la apariencia y comportamiento del sidebar, incluyendo su posición y color de fondo.
+
+3. Encabezado Principal (header.css)
+   #header {
+       background-color: green;
+       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+   }
+   Establece el estilo del encabezado principal del sitio, destacándolo visualmente.
+
+4. Estilo del Botón "Iniciar Sesión" (auth.css)
+   #login-btn {
+       position: absolute;
+       top: 20px;
+       right: 20px;
+       padding: 10px 15px;
+       background-color: #6b8e23;
+       border: none;
+       color: white;
+       font-weight: bold;
+       border-radius: 5px;
+       cursor: pointer;
+       transition: background-color 0.3s ease;
+   }
+   Define la apariencia del botón de inicio de sesión, incluyendo efectos de hover.
+
+5. Ventana Emergente (auth.css)
+   #login-popup {
+       display: none;
+       position: fixed;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       width: 300px;
+       padding: 20px;
+       background-color: #fff;
+       border-radius: 10px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+       z-index: 1000;
+       color: black;
+   }
+   Define el estilo de la ventana emergente de inicio de sesión, asegurando que sea visualmente atractiva y centrada.
+
+6. Fondo Oscuro (Overlay) (auth.css)
+   #overlay {
+       display: none;
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(0, 0, 0, 0.7);
+       z-index: 999;
+   }
+   Establece el fondo oscuro que aparece detrás de la ventana emergente, mejorando la visibilidad del contenido.
+
+7. Sección de Precios (pricing.css)
+   .pricing-section {
+       display: flex;
+       justify-content: space-around;
+       padding: 20px;
+       background-color: #f4f4f4;
+   }
+   Define el estilo de la sección de precios, asegurando que los elementos se distribuyan de manera uniforme.
+
+8. Estilo de Formularios (forms.css)
+   input[type="text"],
+   input[type="email"],
+   textarea {
+       width: 100%;
+       padding: 10px;
+       margin: 10px 0;
+       border: 1px solid #ccc;
+       border-radius: 5px;
+   }
+   Establece el estilo de los campos de entrada y textarea, asegurando que sean fáciles de usar y visualmente atractivos.
+
+9. Galería de Imágenes (gallery.css)
+   .gallery {
+       display: grid;
+       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+       gap: 10px;
+   }
+   Define la disposición de la galería de imágenes, utilizando un diseño de cuadrícula responsivo.
+
+10. Media Queries (responsive.css)
+   @media (max-width: 768px) {
+       #sidebar {
+           left: 0;
+       }
+       .gallery {
+           grid-template-columns: 1fr;
+       }
+   }
+   Implementa ajustes responsivos para mejorar la visualización en dispositivos móviles, adaptando el sidebar y la galería.
+
+----
+
+Conclusión
+Este documento proporciona una visión general de los estilos CSS utilizados en el proyecto "Hotel Cerrito". Cada sección y estilo se ha diseñado para mejorar la experiencia del usuario, asegurando que el sitio sea atractivo y funcional en todos los dispositivos. Se recomienda revisar y actualizar regularmente los estilos para mantener la coherencia y la modernidad del diseño.

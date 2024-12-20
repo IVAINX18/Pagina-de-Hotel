@@ -1,0 +1,81 @@
+        /* Botón del chatbot */
+        #chatbot-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: green;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centra la imagen */
+        }
+    
+        #chatbot-button img {
+            width: 70%; /* Ajusta el tamaño de la imagen dentro del botón */
+            height: 70%;
+            object-fit: contain;
+            border-radius: 50%; /* Opcional si deseas que la imagen se vea circular */
+        }
+    
+        /* Contenedor del chatbot */
+        #chatbot-container {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+        }
+    
+        /* Header del chatbot */
+        #chatbot-container .chatbot-header {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    
+        /* Cuerpo del chatbot */
+        #chatbot-container .chatbot-body {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+    
+        /* Input del chatbot */
+        #chatbot-container .chatbot-footer {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+    
+        #chatbot-container .chatbot-footer input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    
+        #chatbot-container .chatbot-footer button {
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
